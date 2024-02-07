@@ -1,25 +1,14 @@
-import { Grid } from "@mui/material"
 import React from "react"
-import { promotions } from "../../mock/promotions"
-import { PromotionCard } from "../PromotionCard/PromotionCard"
+import { places } from "../../mock/places"
+import { HighlightTrack } from "../HighlightTrack/HighlightTrack"
+import { TinyTrack } from "../TinyTrack/TinyTrack"
 
 export const BookingsBody = (): React.ReactElement => {
     return (
-        <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-        >
-            {promotions.map(item => (
-                <PromotionCard
-                    key={item.id}
-                    name={item.name}
-                    description={item.description}
-                    img={item.img}
-                    price={item.price} />
-            ))}
-
-        </Grid>
+        <>
+            <HighlightTrack places={places} />
+            <TinyTrack title="Recent" places={places} />
+            <HighlightTrack title="Promotions" places={places} />
+        </>
     )
 }

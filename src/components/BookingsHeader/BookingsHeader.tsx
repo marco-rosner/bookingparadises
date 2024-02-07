@@ -10,7 +10,7 @@ export const BookingsHeader = (): React.ReactElement => {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            sx={{ minHeight: '20vh' }}
+            sx={{ minHeight: '30vh' }}
         >
             <BookingForm />
         </Grid>

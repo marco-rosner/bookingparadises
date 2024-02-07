@@ -1,5 +1,5 @@
 import { Paper, Table, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
-import { promotions } from "../../mock/promotions"
+import { places } from "../../mock/places"
 
 export const BookingTable = (): React.ReactElement => {
     return (
@@ -13,7 +13,7 @@ export const BookingTable = (): React.ReactElement => {
                     </TableRow>
 
                 </TableHead>
-                {promotions.map(item => (
+                {places.map(item => (
                     <TableRow key={item.id}>
                         <TableCell>{item.name}</TableCell>
                         <TableCell>{item.dates}</TableCell>
