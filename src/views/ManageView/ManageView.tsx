@@ -1,7 +1,7 @@
 import { Paper, Table, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import { places } from "../../mock/places"
 
-export const BookingTable = (): React.ReactElement => {
+export const ManageView = (): React.ReactElement => {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="promotions">

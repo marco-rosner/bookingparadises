@@ -1,9 +1,8 @@
-import React from "react"
+import { HighlightTrack } from "../../components/HighlightTrack/HighlightTrack"
+import { TinyTrack } from "../../components/TinyTrack/TinyTrack"
 import { places } from "../../mock/places"
-import { HighlightTrack } from "../HighlightTrack/HighlightTrack"
-import { TinyTrack } from "../TinyTrack/TinyTrack"
 
-export const BookingsBody = (): React.ReactElement => {
+export const HomeView = (): React.ReactElement => {
     return (
         <>
             <HighlightTrack places={places} />
