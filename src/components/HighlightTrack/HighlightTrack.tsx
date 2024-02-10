@@ -1,19 +1,21 @@
-import { Card, CardContent, CardHeader, Grid } from "@mui/material"
+import { Card, CardContent, CardHeader, Grid, Skeleton } from "@mui/material"
 import React from "react"
-import { Place } from "../../mock/places"
+import { usePlaces } from "../../hooks/usePlaces"
 import { HighlightCard } from "../HighlightCard/HighlightCard"
 
 interface TrackInterface {
-    places: Place[],
     title?: string
 }
 
+export const HighlightTrack = ({ title }: TrackInterface): React.ReactElement => {
+    const { data: places, loading } = usePlaces()
 
-export const HighlightTrack = ({ places, title }: TrackInterface): React.ReactElement => {
     return (
         <Card variant="outlined" sx={{ background: 'lightgray', border: "none" }}>
-            {title &&
-                (<CardHeader
+            {title && (loading ? (
+                <Skeleton width="30%" sx={{ marginLeft: '30px', fontSize: '2rem'}} />
+            ) : (
+                <CardHeader
                     sx={{ paddingBottom: '0px' }}
                     title={title}
                     titleTypographyProps={{
@@ -21,7 +23,8 @@ export const HighlightTrack = ({ places, title }: TrackInterface): React.ReactEl
                         justifyContent: "flex-start",
                         paddingLeft: "30px"
                     }}
-                />)}
+                />))
+            }
             <CardContent>
                 <Grid
                     container
@@ -29,16 +32,43 @@ export const HighlightTrack = ({ places, title }: TrackInterface): React.ReactEl
                     justifyContent="center"
                     alignItems="center"
                 >
-                    {places.map(item => (
-                        <HighlightCard
-                            key={item.id}
-                            name={item.name}
-                            description={item.description}
-                            img={item.img}
-                            price={item.price} />
-                    ))}
+                    {loading ? (
+                        <>
+                            <Skeleton
+                                variant="rectangular"
+                                sx={{ maxWidth: "350px", margin: "20px" }}
+                                width={350}
+                                height={252}
+                            />
+                            <Skeleton
+                                variant="rectangular"
+                                sx={{ maxWidth: "350px", margin: "20px" }}
+                                width={350}
+                                height={252}
+                            />
+                            <Skeleton
+                                variant="rectangular"
+                                sx={{ maxWidth: "350px", margin: "20px" }}
+                                width={350}
+                                height={252}
+                            />
+                        </>
+                    ) : (
+                        <>
+                            {
+                                places.map(item => (
+                                    <HighlightCard
+                                        key={item.id}
+                                        name={item.name}
+                                        description={item.description}
+                                        img={item.img}
+                                        price={item.price} />
+                                ))
+                            }
+                        </>
+                    )}
                 </Grid>
             </CardContent>
-        </Card>
+        </Card >
     )
 }
