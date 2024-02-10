@@ -28,7 +28,7 @@ export const DatePickers = (): React.ReactElement => {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en'}>
-            <Grid item>
+            <Grid item xs={8} md={3} lg={2.3} xl={1.7}>
                 <DatePicker
                     label="Start Date"
                     onChange={(sDate: Date | null) => {
@@ -38,16 +38,13 @@ export const DatePickers = (): React.ReactElement => {
                     slotProps={{
                         textField: {
                             error: error,
-                            sx: {
-                                width: '200px',
-                                minWidth: '200px'
-                            },
+                            sx: { minWidth: '200px' },
                         },
                     }}
                     disablePast
                 />
             </Grid>
-            <Grid item>
+            <Grid item xs={8} md={3} lg={2.3} xl={1.7}>
                 <DatePicker
                     label="End Date"
                     onChange={(eDate: Date | null) => {
@@ -57,10 +54,7 @@ export const DatePickers = (): React.ReactElement => {
                     slotProps={{
                         textField: {
                             error: error,
-                            sx: {
-                                width: '200px',
-                                minWidth: '200px'
-                            },
+                            sx: { minWidth: '200px' },
                         },
                     }}
                     disablePast

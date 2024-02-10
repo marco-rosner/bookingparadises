@@ -12,12 +12,14 @@ export const BookingForm = (): React.ReactElement => {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            spacing={3}
-            sx={{ minWidth: '200px', marginTop: '10px' }}
-            xs={4}
-            sm={12}
+            spacing={2}
+            sx={{ marginTop: '10px' }}
+            xs={8}
+            md={11}
+            lg={8}
+            xl={8}
         >
-            <Grid item>
+            <Grid item xs={8} md={4} lg={3} xl={3}>
                 <Autocomplete
                     freeSolo
                     id="searchPlace"
@@ -27,7 +29,7 @@ export const BookingForm = (): React.ReactElement => {
                         <TextField
                             {...params}
                             label="Search Place"
-                            sx={{ minWidth: '300px' }}
+                            sx={{ minWidth: '250px' }}
                             InputProps={{
                                 ...params.InputProps,
                                 type: 'search'
@@ -37,7 +39,7 @@ export const BookingForm = (): React.ReactElement => {
                 />
             </Grid>
             <DatePickers />
-            <Grid item>
+            <Grid item xs={8} md={1} lg={1}>
                 <Button size="large" sx={{ color: 'white' }}>Search</Button>
             </Grid>
         </Grid>
