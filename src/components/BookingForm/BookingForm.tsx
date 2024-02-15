@@ -1,10 +1,12 @@
 import React from "react";
 import { Autocomplete, Button, Grid, TextField } from "@mui/material";
 
-import { places } from "../../mock/places";
 import { DatePickers } from "../DatePickers/DatePickers";
+import { usePlaces } from "../../hooks/usePlaces";
 
 export const BookingForm = (): React.ReactElement => {
+    const { data: places } = usePlaces()
+
     return (
         <Grid
             container
@@ -33,7 +35,7 @@ export const BookingForm = (): React.ReactElement => {
                     renderInput={(params) => (
                         <TextField
                             {...params}
-                            label="Search the beach"
+                            label="Search your paradise"
                             sx={{
                                 minWidth: '250px',
                                 "& .MuiAutocomplete-inputFocused": { color: "white" }

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, Grid } from "@mui/material"
 import React from "react"
-import { usePlaces } from "../../hooks/usePlaces"
+import { usePromotions } from "../../hooks/usePromotions"
 import { HighlightCard } from "../HighlightCard/HighlightCard"
 import { ContentSkeleton } from "./ContentSkeleton"
 import { TitleSkeleton } from "./TitleSkeleton"
@@ -10,7 +10,7 @@ interface TrackInterface {
 }
 
 export const HighlightTrack = ({ title }: TrackInterface): React.ReactElement => {
-    const { data: places, loading } = usePlaces()
+    const { data: promotions, loading } = usePromotions()
 
     return (
         <Card variant="outlined" sx={{ background: '#e6d6bf', border: "none" }}>
@@ -40,13 +40,8 @@ export const HighlightTrack = ({ title }: TrackInterface): React.ReactElement =>
                         (
                             <>
                                 {
-                                    places.map(item => (
-                                        <HighlightCard
-                                            key={item.id}
-                                            name={item.name}
-                                            description={item.description}
-                                            img={item.img}
-                                            price={item.price} />
+                                    promotions.map(item => (
+                                        <HighlightCard key={item.id} property={item.property} />
                                     ))
                                 }
                             </>

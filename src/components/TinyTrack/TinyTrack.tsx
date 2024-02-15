@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, Grid } from "@mui/material"
 import React from "react"
-import { usePlaces } from "../../hooks/usePlaces"
+import { useProperties } from "../../hooks/useProperties"
 import { TinyCard } from "../TinyCard/TinyCard"
 import { TinyTrackSkeleton } from "./TinyTrackSkeleton"
 
@@ -9,7 +9,7 @@ interface TrackInterface {
 }
 
 export const TinyTrack = ({ title }: TrackInterface): React.ReactElement => {
-    const { data: places, loading } = usePlaces()
+    const { data: properties, loading } = useProperties()
 
     return (
         <Card variant="outlined" sx={{ background: '#e6d6bf', border: "none" }}>
@@ -32,13 +32,8 @@ export const TinyTrack = ({ title }: TrackInterface): React.ReactElement => {
                                 justifyContent="center"
                                 alignItems="center"
                             >
-                                {places.map(item => (
-                                    <TinyCard
-                                        key={item.id}
-                                        name={item.name}
-                                        tag={item.tag}
-                                        img={item.img}
-                                        price={item.price} />
+                                {properties.slice(3,6).map(property => (
+                                    <TinyCard key={property.id} property={property} />
                                 ))}
                             </Grid>
                         </CardContent>

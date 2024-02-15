@@ -1,11 +1,18 @@
 import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
-import { Place } from "../../mock/places";
+import { useNavigate } from "react-router-dom";
+import { Property } from "../../mock/properties";
 
-export const TinyCard = ({ name, tag, img, price }: Place): React.ReactElement => {
+interface TinyCardInterface {
+    property: Property
+}
+
+export const TinyCard = ({ property: { id, name, tags, img, price } }: TinyCardInterface): React.ReactElement => {
+    const navigate = useNavigate()
+
     return (
         <Card sx={{ maxWidth: "350px", margin: "20px" }}>
-            <CardActionArea sx={{ padding: "10px" }} onClick={() => console.log('Highlight')}>
+            <CardActionArea sx={{ padding: "10px" }} onClick={() => navigate(`/details/${id}`)}>
                 <Grid container spacing={2} sx={{ minWidth: '200px', minHeight: '108px' }}>
                     <Grid item>
                         <CardMedia
@@ -24,7 +31,7 @@ export const TinyCard = ({ name, tag, img, price }: Place): React.ReactElement =
                                     {name}
                                 </Typography>
                                 <Typography variant="caption" component="div">
-                                    {tag}
+                                    {tags.reduce((acc, cur) => acc = `${acc}, ${cur}`)}
                                 </Typography>
                             </Grid>
                         </Grid>

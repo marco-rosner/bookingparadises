@@ -1,29 +1,29 @@
 import { useState } from "react";
-import { Place, places } from "../mock/places";
+import { Promotion, promotions } from "../mock/promotions";
 
-interface usePlacesInterface {
+interface usePromotionsInterface {
     loading: boolean;
     error: boolean;
-    data: Place[]
+    data: Promotion[]
 }
 
-export const usePlaces = (): usePlacesInterface => {
+export const usePromotions = (): usePromotionsInterface => {
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<boolean>(false)
-    const [data, setData] = useState<Place[]>([])
+    const [data, setData] = useState<Promotion[]>([])
 
     // Mocking backend request
     const min = 1000
     const max = 3000
     const timeout = Math.random() * (min - max) + min
-    const backendService = new Promise<Place[]>(
-        (resolve) => setTimeout(() => resolve(places), timeout)
+    const backendService = new Promise<Promotion[]>(
+        (resolve) => setTimeout(() => resolve(promotions), timeout)
     );
 
     backendService.then(() => {
         setLoading(false)
         setError(false)
-        setData(places)
+        setData(promotions)
     }).catch(() => {
         setLoading(false)
         setError(true)
