@@ -28,7 +28,7 @@ export const BookingMenu = () => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                        <Avatar sx={{ width: 32, height: 32 }}>U</Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>

@@ -11,7 +11,7 @@ export const TinyTrack = ({ title }: TrackInterface): React.ReactElement => {
     const { data: places, loading } = usePlaces()
 
     return (
-        <Card variant="outlined" sx={{ background: 'lightgray', border: "none" }}>
+        <Card variant="outlined" sx={{ background: '#e6d6bf', border: "none" }}>
             {loading ? (
                 <>
                     <Skeleton width="30%" sx={{ marginLeft: '30px', fontSize: '2rem' }} />

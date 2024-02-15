@@ -38,7 +38,13 @@ export const DatePickers = (): React.ReactElement => {
                     slotProps={{
                         textField: {
                             error: error,
-                            sx: { minWidth: '200px' },
+                            sx: {
+                                minWidth: '200px',
+                                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                                    border: "1px solid #eee"
+                                },
+                                "& .MuiInputBase-inputAdornedEnd": { color: "white" }
+                            },
                         },
                     }}
                     disablePast
@@ -51,10 +57,20 @@ export const DatePickers = (): React.ReactElement => {
                         eDate && setEndDate(eDate);
                         console.log(dayjs(eDate).toDate());
                     }}
+                    sx={{
+                        input: { color: "secondary" },
+                        label: { color: "secondary" }
+                    }}
                     slotProps={{
                         textField: {
                             error: error,
-                            sx: { minWidth: '200px' },
+                            sx: {
+                                minWidth: '200px',
+                                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                                    border: "1px solid #eee"
+                                },
+                                "& .MuiInputBase-inputAdornedEnd": { color: "white" }
+                            }
                         },
                     }}
                     disablePast

@@ -16,7 +16,7 @@ export const HighlightCard = ({name, description, img}: Place): React.ReactEleme
                     <Typography gutterBottom variant="h5" component="div">
                         {name}
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="caption" color="gray">
                         {description}
                     </Typography>
                 </CardContent>

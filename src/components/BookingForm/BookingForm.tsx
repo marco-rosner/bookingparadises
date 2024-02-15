@@ -25,11 +25,22 @@ export const BookingForm = (): React.ReactElement => {
                     id="searchPlace"
                     disableClearable
                     options={places.map((place) => place.name)}
+                    sx={{
+                        "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                            border: "1px solid #eee"
+                        }
+                    }}
                     renderInput={(params) => (
                         <TextField
                             {...params}
-                            label="Search Place"
-                            sx={{ minWidth: '250px' }}
+                            label="Search the beach"
+                            sx={{
+                                minWidth: '250px',
+                                "& .MuiAutocomplete-inputFocused": { color: "white" }
+                            }}
+                            InputLabelProps={{
+                                color: "secondary"
+                            }}
                             InputProps={{
                                 ...params.InputProps,
                                 type: 'search'
@@ -40,7 +51,7 @@ export const BookingForm = (): React.ReactElement => {
             </Grid>
             <DatePickers />
             <Grid item xs={8} md={1} lg={1}>
-                <Button size="large" sx={{ color: 'white' }}>Search</Button>
+                <Button size="large" color="secondary">Search</Button>
             </Grid>
         </Grid>
     )
