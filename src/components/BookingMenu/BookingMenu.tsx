@@ -15,22 +15,27 @@ export const BookingMenu = () => {
     const onClose = () => setAnchorEl(null)
 
     return (
-        <Box sx={{ width: '70%', display: 'flex', alignItems: 'center', justifyContent: 'end' }}>
-            <Box sx={{ mr: '10px', cursor: 'pointer' }} onClick={() => navigate("/")}>
-                <Typography color="white">Make a reservation</Typography>
-            </Box>
+        <Box sx={{ width: '70%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Box>
-                <Tooltip title="User account">
-                    <IconButton
-                        onClick={onClick}
-                        size="small"
-                        aria-controls={open ? 'account-menu' : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? 'true' : undefined}
-                    >
-                        <Avatar sx={{ width: 32, height: 32 }}>U</Avatar>
-                    </IconButton>
-                </Tooltip>
+                <Avatar sx={{ width: 96, height: 96, bgcolor: 'transparent', opacity: '0.7' }}>Booking paradises</Avatar>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Box sx={{ mr: '10px', cursor: 'pointer' }} onClick={() => navigate("/")}>
+                    <Typography color="white">Make a reservation</Typography>
+                </Box>
+                <Box>
+                    <Tooltip title="User account">
+                        <IconButton
+                            onClick={onClick}
+                            size="small"
+                            aria-controls={open ? 'account-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                        >
+                            <Avatar sx={{ width: 32, height: 32 }}>U</Avatar>
+                        </IconButton>
+                    </Tooltip>
+                </Box>
             </Box>
             <Menu
                 anchorEl={anchorEl}
