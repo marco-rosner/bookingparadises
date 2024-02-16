@@ -47,8 +47,8 @@ export const ManageView = (): React.ReactElement => {
                             <TableCell align="center" colSpan={7}>No Bookings</TableCell>
                         </TableRow>
                     ) : filteredBookings.map(({ id, property, startDate, endDate, price }) => {
-                        const fromDate = `${dayjs(startDate).format("MMM")}/${dayjs(startDate).day()}/${dayjs(startDate).year()}`
-                        const toDate = `${dayjs(endDate).format("MMM")}/${dayjs(endDate).day()}/${dayjs(endDate).year()}`
+                        const fromDate = `${dayjs(startDate).format("MMM")} ${dayjs(startDate).format('DD')}`
+                        const toDate = `${dayjs(endDate).format("MMM")} ${dayjs(endDate).format('DD')}`
 
                         return (
                             <TableRow key={id}>

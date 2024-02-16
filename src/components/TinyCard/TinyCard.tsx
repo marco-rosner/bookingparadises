@@ -1,18 +1,29 @@
 import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useBookings } from "../../hooks/useBookings";
+import { useNextId } from "../../hooks/useNextId";
 import { Property } from "../../mock/properties";
 
 interface TinyCardInterface {
     property: Property
 }
 
-export const TinyCard = ({ property: { id, name, tags, img, price } }: TinyCardInterface): React.ReactElement => {
+export const TinyCard = ({ property }: TinyCardInterface): React.ReactElement => {
+    const { dispatch } = useBookings()
+    const { nextId } = useNextId()
     let navigate = useNavigate()
+    const { id, name, img, tags, price } = property
+
+    const onClick = () => {
+        dispatch({ type: 'created', payload: { id: nextId, property }})
+
+        navigate(`/bookings/${nextId}/properties/${id}`)
+    }
 
     return (
         <Card sx={{ maxWidth: "350px", margin: "20px" }}>
-            <CardActionArea sx={{ padding: "10px" }} onClick={() => navigate(`/property/${id}/details/`)}>
+            <CardActionArea sx={{ padding: "10px" }} onClick={onClick}>
                 <Grid container spacing={2} sx={{ minWidth: '200px', minHeight: '108px' }}>
                     <Grid item>
                         <CardMedia
@@ -39,7 +50,7 @@ export const TinyCard = ({ property: { id, name, tags, img, price } }: TinyCardI
                     </Grid>
                     <Grid item xs={2} sx={{ minWidth: '30px', marginLeft: '4px' }}>
                         <Typography variant="caption" component="div">
-                            ${price} per person
+                            ${price} per day
                         </Typography>
                     </Grid>
                 </Grid>

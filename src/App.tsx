@@ -24,7 +24,7 @@ export const App = (): React.ReactElement => {
               <Route index element={<HomeView />} />
               <Route path="/manage" element={<ManageView />} />
               <Route path="/bookings/:bookingId/places/:placeId" element={<ListView />} />
-              <Route path="/property/:id/details" element={<DetailsView />} />
+              <Route path="/bookings/:bookingId/properties/:propertyId" element={<DetailsView />} />
             </Route>
           </Routes>
         </BookingProvider>

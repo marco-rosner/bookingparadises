@@ -27,7 +27,7 @@ export const reducer = (state: BookingInterface[], { type, payload }: ActionInte
         case 'updated':
             return state.map(booking => {
                 if (booking.id === payload.id) {
-                    return payload
+                    return { ...booking, ...payload }
                 } else {
                     return booking
                 }
@@ -35,7 +35,7 @@ export const reducer = (state: BookingInterface[], { type, payload }: ActionInte
         case 'confirmed':
             return state.map(booking => {
                 if (booking.id === payload.id) {
-                    return { ...payload, status: BookingStatus.Confirmed }
+                    return { ...booking, ...payload, status: BookingStatus.Confirmed }
                 } else {
                     return booking
                 }

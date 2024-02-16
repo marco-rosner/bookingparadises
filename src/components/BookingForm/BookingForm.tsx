@@ -12,6 +12,7 @@ import { useBookings } from "../../hooks/useBookings";
 import { AlertPopup } from "../AlertPopup/AlertPopup";
 import { PlaceField } from "../PlaceField/PlaceField";
 import { useNavigate } from "react-router-dom";
+import { useNextId } from "../../hooks/useNextId";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -27,20 +28,19 @@ export const BookingForm = (): React.ReactElement => {
     const [startDate, setStartDate] = useState<Date>()
     const [endDate, setEndDate] = useState<Date>()
     const [error, setError] = useState(false)
-    const { bookings, dispatch } = useBookings()
+    const { dispatch } = useBookings()
+    const { nextId } = useNextId()
     let navigate = useNavigate()
 
     useEffect(() => {
-        if (startDate && endDate) setError(dayjs(endDate).isBefore(startDate))
-    }, [startDate])
-
-    useEffect(() => {
-        if (startDate && endDate) setError(dayjs(startDate).isAfter(endDate))
-    }, [endDate])
+        if (startDate && endDate) {
+            if (dayjs(startDate).isAfter(endDate) || dayjs(endDate).isBefore(startDate)){
+                setError(true)
+            }
+        }
+    }, [startDate, endDate])
 
     const onClick = () => {
-        const nextId = bookings[bookings.length-1] ? bookings[bookings.length-1].id + 1 : 123842 // just for fun =)
-
         dispatch({ type: 'created', payload: { id: nextId, startDate, endDate } })
 
         navigate(`/bookings/${nextId}/places/${placeId}`)
