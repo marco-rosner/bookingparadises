@@ -8,11 +8,11 @@ interface TinyCardInterface {
 }
 
 export const TinyCard = ({ property: { id, name, tags, img, price } }: TinyCardInterface): React.ReactElement => {
-    const navigate = useNavigate()
+    let navigate = useNavigate()
 
     return (
         <Card sx={{ maxWidth: "350px", margin: "20px" }}>
-            <CardActionArea sx={{ padding: "10px" }} onClick={() => navigate(`/details/${id}`)}>
+            <CardActionArea sx={{ padding: "10px" }} onClick={() => navigate(`/property/${id}/details/`)}>
                 <Grid container spacing={2} sx={{ minWidth: '200px', minHeight: '108px' }}>
                     <Grid item>
                         <CardMedia

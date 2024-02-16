@@ -8,11 +8,11 @@ interface HighlightCardInterface {
 }
 
 export const HighlightCard = ({ property: { id, name, description, img }}: HighlightCardInterface): React.ReactElement => {
-    const navigate = useNavigate()
+    let navigate = useNavigate()
 
     return (
         <Card sx={{ maxWidth: "350px", margin: "20px" }}>
-            <CardActionArea onClick={() => navigate(`/details/${id}`)}>
+            <CardActionArea onClick={() => navigate(`/property/${id}/details`)}>
                 <CardMedia
                     component="img"
                     height="140"

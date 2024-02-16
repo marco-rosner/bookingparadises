@@ -13,7 +13,12 @@ export const useProperties = (): usePropertiesInterface => {
     const [data, setData] = useState<Property[]>([])
 
     // Mocking backend request
-    const backendService = new Promise<Property[]>((resolve) => resolve(properties));
+    const min = 1000
+    const max = 3000
+    const timeout = Math.random() * (min - max) + min
+    const backendService = new Promise<Property[]>(
+        (resolve) => setTimeout(() => resolve(properties), timeout)
+    );
 
     backendService.then(() => {
         setLoading(false)

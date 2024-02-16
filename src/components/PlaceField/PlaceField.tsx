@@ -11,11 +11,11 @@ export const PlaceField = ({ label, setPlaceId }: NameField): React.ReactElement
     const { data: places } = usePlaces()
 
     return (
-        <Autocomplete<Place, true, true, true>
-            freeSolo
+        <Autocomplete<Pick<Place, "name" | "id">, false, true, true>
             id="searchPlace"
+            freeSolo
             disableClearable
-            options={places.map((place) => place)}
+            options={places.map((place) => ({ name: place.name, id: place.id }))}
             getOptionLabel={(option: any) => (option.name)}
             onChange={(_, option: any) => setPlaceId(option.id)}
             sx={{

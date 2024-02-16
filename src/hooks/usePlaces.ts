@@ -13,7 +13,12 @@ export const usePlaces = (): usePlacesInterface => {
     const [data, setData] = useState<Place[]>([])
 
     // Mocking backend request
-    const backendService = new Promise<Place[]>((resolve) => resolve(places));
+    const min = 1000
+    const max = 3000
+    const timeout = Math.random() * (min - max) + min
+    const backendService = new Promise<Place[]>(
+        (resolve) => setTimeout(() => resolve(places), timeout)
+    );
 
     backendService.then(() => {
         setLoading(false)

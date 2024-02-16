@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const BookingMenu = () => {
-    const navigate = useNavigate();
+    let navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl)
 

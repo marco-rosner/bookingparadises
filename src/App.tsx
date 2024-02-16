@@ -6,6 +6,7 @@ import { DetailsView } from './views/DetailsView/DetailsView'
 import { HomeView } from './views/HomeView/HomeView'
 import { LayoutView } from './views/LayoutView/LayoutView'
 import { ManageView } from './views/ManageView/ManageView'
+import { ListView } from './views/ListView/ListView'
 
 import { BookingProvider } from './components/BookingProvider/BookingProvider'
 
@@ -21,10 +22,10 @@ export const App = (): React.ReactElement => {
           <Routes>
             <Route path="/" element={<LayoutView />}>
               <Route index element={<HomeView />} />
-              <Route path="/booking/:id/place/:placeId" element={<ManageView />} />
-              <Route path="/booking/:id/details" element={<DetailsView />} />
-              <Route path="/details/:id" element={<DetailsView />} />
               <Route path="/manage" element={<ManageView />} />
+              <Route path="/bookings/:id/places/:placeId" element={<ListView />} />
+              <Route path="/bookings/:id/details" element={<DetailsView />} />
+              <Route path="/property/:id/details" element={<DetailsView />} />
             </Route>
           </Routes>
         </BookingProvider>

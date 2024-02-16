@@ -28,7 +28,7 @@ export const BookingForm = (): React.ReactElement => {
     const [endDate, setEndDate] = useState<Date>()
     const [error, setError] = useState(false)
     const { bookings, dispatch } = useBookings()
-    const navigate = useNavigate()
+    let navigate = useNavigate()
 
     useEffect(() => {
         if (startDate && endDate) setError(dayjs(endDate).isBefore(startDate))
@@ -36,7 +36,6 @@ export const BookingForm = (): React.ReactElement => {
 
     useEffect(() => {
         if (startDate && endDate) setError(dayjs(startDate).isAfter(endDate))
-        console.log(dayjs(startDate).toDate());
     }, [endDate])
 
     const onClick = () => {
@@ -44,7 +43,7 @@ export const BookingForm = (): React.ReactElement => {
 
         dispatch({ type: 'created', payload: { id: nextId, startDate, endDate } })
 
-        navigate(`/booking/${nextId}/place/${placeId}`)
+        navigate(`/bookings/${nextId}/places/${placeId}`)
     }
 
     return (
