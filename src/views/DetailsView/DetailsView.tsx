@@ -1,14 +1,14 @@
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import dayjs from "dayjs"
+
 import { Box, Button, CardMedia, Grid, Typography } from "@mui/material"
 import { LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
-import dayjs from "dayjs"
-import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
-import { AlertPopup } from "../../components/AlertPopup/AlertPopup"
-import { DateField } from "../../components/DateField/DateField"
-import { useBookings } from "../../hooks/useBookings"
-import { usePlaces } from "../../hooks/usePlaces"
-import { useProperties } from "../../hooks/useProperties"
+
+import { AlertPopup, DateField } from "../../components"
+
+import { useBookings, usePlaces, useProperties } from "../../hooks"
 
 export const DetailsView = () => {
     const [startDate, setStartDate] = useState<Date>()

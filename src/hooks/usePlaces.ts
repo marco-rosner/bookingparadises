@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Place, places } from "../mock/places";
+import { places } from "../mock/places";
+import { Place } from "../types";
 
 interface usePlacesInterface {
     loading: boolean;

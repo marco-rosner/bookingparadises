@@ -1,12 +1,9 @@
-import { HighlightTrack } from "../../components/HighlightTrack/HighlightTrack"
-import { TinyTrack } from "../../components/TinyTrack/TinyTrack"
+import { HighlightTrack, TinyTrack } from "../../components";
 
-export const HomeView = (): React.ReactElement => {
-    return (
-        <>
-            <HighlightTrack />
-            <TinyTrack title="Recent" />
-            <HighlightTrack title="Promotions" />
-        </>
-    )
-}
+export const HomeView = (): React.ReactElement => (
+    <>
+        <HighlightTrack />
+        <TinyTrack title="Recent" />
+        <HighlightTrack title="Promotions" />
+    </>
+)

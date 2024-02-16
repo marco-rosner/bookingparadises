@@ -1,10 +1,5 @@
-import { properties, Property } from "./properties"
-
-export interface Promotion {
-    id: number,
-    property: Property,
-    price: number,
-}
+import { Promotion } from "../types"
+import { properties } from "./properties"
 
 export const promotions: Promotion[] = [{
     id: 118729,

@@ -1,4 +1,4 @@
-import { Property } from "../mock/properties";
+import { Property } from "../types";
 
 export enum BookingStatus {
     Pending = "PENDING",

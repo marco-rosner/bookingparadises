@@ -1,11 +1,12 @@
-import { Box, Button, CardMedia, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material"
-import dayjs from "dayjs"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { AlertPopup } from "../../components/AlertPopup/AlertPopup"
-import { useBookings } from "../../hooks/useBookings"
-import { useProperties } from "../../hooks/useProperties"
-import { Property } from "../../mock/properties"
+import dayjs from "dayjs"
+
+import { Box, Button, CardMedia, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material"
+
+import { useBookings, useProperties } from "../../hooks"
+import { AlertPopup } from "../../components"
+import { Property } from "../../types"
 
 export const ListView = (): React.ReactElement => {
     const { data: properties } = useProperties()

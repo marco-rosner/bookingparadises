@@ -1,8 +1,9 @@
-import { Box, Button, CardMedia, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material"
-import dayjs from "dayjs"
 import { useState } from "react"
+import dayjs from "dayjs"
+import { Box, Button, CardMedia, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material"
+
 import { AlertPopup } from "../../components/AlertPopup/AlertPopup"
-import { useBookings } from "../../hooks/useBookings"
+import { useBookings } from "../../hooks"
 import { BookingStatus } from "../../store/reducer"
 
 export const ManageView = (): React.ReactElement => {

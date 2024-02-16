@@ -1,9 +1,8 @@
-import { Avatar, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material"
-import { Box } from "@mui/system"
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Avatar, Box, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material"
 
-export const BookingMenu = () => {
+export const BookingMenu = (): React.ReactElement => {
     let navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl)

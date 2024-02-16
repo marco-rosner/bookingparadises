@@ -1,4 +1,4 @@
 import { useContext } from "react";
-import { BookingContext } from "../components/BookingProvider/BookingProvider";
+import { BookingContext } from "../components";
 
 export const useBookings = () => useContext(BookingContext)

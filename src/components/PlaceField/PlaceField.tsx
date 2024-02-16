@@ -1,6 +1,6 @@
 import { Autocomplete, TextField } from "@mui/material"
 import { usePlaces } from "../../hooks/usePlaces"
-import { Place } from "../../mock/places"
+import { Place } from "../../types";
 
 interface NameField {
     label: string;

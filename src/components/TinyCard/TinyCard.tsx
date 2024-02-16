@@ -1,9 +1,9 @@
-import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useBookings } from "../../hooks/useBookings";
-import { useNextId } from "../../hooks/useNextId";
-import { Property } from "../../mock/properties";
+import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material";
+
+import { useBookings, useNextId } from "../../hooks";
+import { Property } from "../../types";
 
 interface TinyCardInterface {
     property: Property

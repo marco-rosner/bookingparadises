@@ -1,12 +1,4 @@
-export interface Property {
-    id: number;
-    placeId: number;
-    name: string;
-    description: string;
-    tags: string[];
-    price: number;
-    img: string;
-}
+import { Property } from "../types";
 
 export const properties: Property[] = [
     {

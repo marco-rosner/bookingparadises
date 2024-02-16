@@ -1,6 +1,7 @@
-import { Card, CardContent, CardHeader, Grid } from "@mui/material"
 import React from "react"
-import { usePromotions } from "../../hooks/usePromotions"
+import { Card, CardContent, CardHeader, Grid } from "@mui/material"
+
+import { usePromotions } from "../../hooks"
 import { HighlightCard } from "../HighlightCard/HighlightCard"
 import { ContentSkeleton } from "./ContentSkeleton"
 import { TitleSkeleton } from "./TitleSkeleton"

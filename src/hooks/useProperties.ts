@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Property, properties } from "../mock/properties";
+import { properties } from "../mock/properties";
+import { Property } from "../types";
 
 interface usePropertiesInterface {
     loading: boolean;

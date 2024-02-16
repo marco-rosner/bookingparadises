@@ -1,9 +1,4 @@
-export interface Place {
-    id: number,
-    name: string,
-    description?: string,
-    tags?: string[]
-}
+import { Place } from "../types";
 
 export const places: Place[] = [{
     id: 1,

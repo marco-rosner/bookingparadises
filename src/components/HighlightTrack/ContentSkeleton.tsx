@@ -1,6 +1,7 @@
+import React from "react";
 import { Skeleton } from "@mui/material";
 
-export const ContentSkeleton = () => (
+export const ContentSkeleton = (): React.ReactElement => (
     <>
         <Skeleton
             variant="rectangular"

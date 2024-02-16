@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, Grid } from "@mui/material"
 import React from "react"
-import { useProperties } from "../../hooks/useProperties"
+import { useProperties } from "../../hooks"
+
 import { TinyCard } from "../TinyCard/TinyCard"
 import { TinyTrackSkeleton } from "./TinyTrackSkeleton"
 

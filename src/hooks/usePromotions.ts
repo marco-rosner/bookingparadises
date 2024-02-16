@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Promotion, promotions } from "../mock/promotions";
+import { promotions } from "../mock/promotions";
+import { Promotion } from "../types";
 
 interface usePromotionsInterface {
     loading: boolean;
