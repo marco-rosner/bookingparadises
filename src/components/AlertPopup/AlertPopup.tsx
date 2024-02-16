@@ -4,14 +4,14 @@ import React, { useEffect, useState } from "react"
 interface AlertInterface {
     message: string,
     severity: AlertProps['severity'],
-    error: boolean,
+    open: boolean,
     duration?: number
 }
 
-export const AlertPopup = ({ error, message, severity, duration = 5000 }: AlertInterface): React.ReactElement => {
-    const [open, setOpen] = useState(false);
+export const AlertPopup = ({ open, message, severity, duration = 5000 }: AlertInterface): React.ReactElement => {
+    const [isOpen, setOpen] = useState(false);
 
-    useEffect(() => setOpen(error), [error])
+    useEffect(() => setOpen(open), [open])
 
     const handleClose = (_: React.SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') return
@@ -21,7 +21,7 @@ export const AlertPopup = ({ error, message, severity, duration = 5000 }: AlertI
 
     return (
         <Snackbar
-            open={open}
+            open={isOpen}
             autoHideDuration={duration}
             onClose={handleClose}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}

@@ -65,17 +65,17 @@ export const BookingForm = (): React.ReactElement => {
             </Grid>
             <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en'}>
                 <Grid item xs={8} md={3} lg={2.3} xl={1.7}>
-                    <DateField label="startDate" error={error} setDate={setStartDate} />
+                    <DateField label="Start Date" error={error} setDate={setStartDate} />
                 </Grid>
                 <Grid item xs={8} md={3} lg={2.3} xl={1.7}>
-                    <DateField label="endDate" error={error} setDate={setEndDate} />
+                    <DateField label="End Date" error={error} setDate={setEndDate} />
                 </Grid>
             </LocalizationProvider>
             <Grid item xs={8} md={1} lg={1}>
-                <Button size="large" color="secondary" onClick={onClick} disabled={error}>Search</Button>
+                <Button size="large" color="secondary" onClick={onClick} disabled={error || !endDate}>Search</Button>
             </Grid>
             <AlertPopup
-                error={error}
+                open={error}
                 message="There is an error in the dates"
                 severity="error" />
         </Grid>

@@ -21,7 +21,6 @@ export const LayoutView = (): React.ReactElement => {
             <Grid
                 container
                 direction="column"
-                justifyContent="center"
                 alignItems="center"
                 sx={{ minWidth: '100vw', minHeight: '70vh', background: '#e6d6bf' }}
             >

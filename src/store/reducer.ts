@@ -1,6 +1,6 @@
 import { Property } from "../mock/properties";
 
-enum BookingStatus {
+export enum BookingStatus {
     Pending = "PENDING",
     Confirmed = "CONFIRMED"
 }

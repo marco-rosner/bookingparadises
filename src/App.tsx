@@ -23,8 +23,7 @@ export const App = (): React.ReactElement => {
             <Route path="/" element={<LayoutView />}>
               <Route index element={<HomeView />} />
               <Route path="/manage" element={<ManageView />} />
-              <Route path="/bookings/:id/places/:placeId" element={<ListView />} />
-              <Route path="/bookings/:id/details" element={<DetailsView />} />
+              <Route path="/bookings/:bookingId/places/:placeId" element={<ListView />} />
               <Route path="/property/:id/details" element={<DetailsView />} />
             </Route>
           </Routes>
