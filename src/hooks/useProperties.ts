@@ -13,9 +13,7 @@ export const useProperties = (): usePropertiesInterface => {
     const [data, setData] = useState<Property[]>([])
 
     // Mocking backend request
-    const backendService = new Promise<Property[]>(
-        (resolve) => resolve(properties)
-    );
+    const backendService = new Promise<Property[]>((resolve) => resolve(properties));
 
     backendService.then(() => {
         setLoading(false)

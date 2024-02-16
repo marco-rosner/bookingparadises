@@ -16,7 +16,7 @@ export const BookingMenu = () => {
 
     return (
         <Box sx={{ width: '70%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Box>
+            <Box sx={{ cursor: 'pointer' }} onClick={() => navigate("/")}>
                 <Avatar sx={{ width: 96, height: 96, bgcolor: 'transparent', opacity: '0.7' }}>Booking paradises</Avatar>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
