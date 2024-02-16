@@ -28,7 +28,7 @@ export const DetailsView = () => {
 
     useEffect(() => {
         if (startDate && endDate) {
-            if (dayjs(startDate).isAfter(endDate) || dayjs(endDate).isBefore(startDate)){
+            if (dayjs(startDate).isAfter(endDate) || dayjs(endDate).isBefore(startDate)) {
                 setError(true)
             } else {
                 setError(false)
@@ -61,43 +61,61 @@ export const DetailsView = () => {
 
     return (
         <Box sx={{ marginTop: '20px' }}>
-            <Typography variant="h4">{`${property?.name} in ${place?.name}`}</Typography>
-            <Typography variant="subtitle1">{property?.tags.reduce((acc, cur) => (`${acc}, ${cur}`))}</Typography>
-            <Typography variant="h6" sx={{ margin: '10px' }}>{property?.description}</Typography>
-            <Grid container sx={{ justifyContent: 'center', alignContent: 'center' }}>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={property?.img}
-                    alt={property?.name}
-                    sx={{ width: '300px', height: '300px' }}
-                />
-            </Grid>
-            <Typography variant="h6" sx={{ margin: '10px' }}>{`Price per day: ${property?.price}`}</Typography>
-            <Box sx={{ width: '40vw' }}>
-                <Grid container sx={{ direction: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
-                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en'}>
-                        <DateField label="Start Date" error={error} color="#000" setDate={setStartDate} />
-                        <DateField label="End Date" error={error} color="#000" setDate={setEndDate} />
-                    </LocalizationProvider>
+            <Grid
+                container
+                item
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
+                sx={{ marginTop: '10px' }}
+                xs={8}
+                sm={10}
+                md={12}
+                lg={12}
+                xl={12}
+            >
+                <Typography variant="h4">{`${property?.name} in ${place?.name}`}</Typography>
+                <Typography variant="subtitle1">{property?.tags.reduce((acc, cur) => (`${acc}, ${cur}`))}</Typography>
+                <Typography variant="h6" sx={{ margin: '10px' }}>{property?.description}</Typography>
+                <Grid container sx={{ justifyContent: 'center', alignContent: 'center' }}>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={property?.img}
+                        alt={property?.name}
+                        sx={{ width: '300px', height: '300px' }}
+                    />
                 </Grid>
-            </Box>
-            <Typography variant="h6" sx={{ margin: '10px' }}>
-                {
-                    !endDate || error ?
-                        "Total price: Choose the dates to see the total price" :
-                        `Total price: ${price}`
-                }
-            </Typography>
-            <Button variant="contained" size="large" sx={{ textTransform: "none" }} onClick={onClick} disabled={error || !endDate}>Reserve this paradise</Button>
-            <AlertPopup
-                open={error}
-                message="There is an error in the dates"
-                severity="error" />
-            <AlertPopup
-                open={success}
-                message="Your reservation is confirmed! You will be redirect to manage your bookings in 2s..."
-                severity="success" />
+                <Typography variant="h6" sx={{ margin: '10px' }}>{`Price per day: ${property?.price}`}</Typography>
+                <Box sx={{ width: '40vw' }}>
+                    <Grid container sx={{ direction: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en'}>
+                            <Box sx={{ margin: '5px' }}>
+                                <DateField label="Start Date" error={error} color="#000" setDate={setStartDate} />
+                            </Box>
+                            <Box sx={{ margin: '5px' }}>
+                                <DateField label="End Date" error={error} color="#000" setDate={setEndDate} />
+                            </Box>
+                        </LocalizationProvider>
+                    </Grid>
+                </Box>
+                <Typography variant="h6" sx={{ margin: '10px' }}>
+                    {
+                        !endDate || error ?
+                            "Total price: Choose the dates to see the total price" :
+                            `Total price: ${price}`
+                    }
+                </Typography>
+                <Button variant="contained" size="large" sx={{ textTransform: "none" }} onClick={onClick} disabled={error || !endDate}>Reserve this paradise</Button>
+                <AlertPopup
+                    open={error}
+                    message="There is an error in the dates"
+                    severity="error" />
+                <AlertPopup
+                    open={success}
+                    message="Your reservation is confirmed! You will be redirect to manage your bookings in 2s..."
+                    severity="success" />
+            </Grid>
         </Box>
     )
 }
