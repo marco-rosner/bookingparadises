@@ -21,8 +21,10 @@ export const App = (): React.ReactElement => {
           <Routes>
             <Route path="/" element={<LayoutView />}>
               <Route index element={<HomeView />} />
-              <Route path="/manage" element={<ManageView />} />
+              <Route path="/booking/:id/place/:placeId" element={<ManageView />} />
+              <Route path="/booking/:id/details" element={<DetailsView />} />
               <Route path="/details/:id" element={<DetailsView />} />
+              <Route path="/manage" element={<ManageView />} />
             </Route>
           </Routes>
         </BookingProvider>

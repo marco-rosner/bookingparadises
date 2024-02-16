@@ -1,11 +1,17 @@
 import { Property } from "../mock/properties";
 
+enum BookingStatus {
+    Pending = "PENDING",
+    Confirmed = "CONFIRMED"
+}
+
 export interface BookingInterface {
     id: number;
-    property: Property;
-    startDate: Date;
-    endDate: Date;
-    price: number;
+    status?: BookingStatus;
+    property?: Property;
+    startDate?: Date;
+    endDate?: Date;
+    price?: number;
 }
 
 export interface ActionInterface {
@@ -16,12 +22,20 @@ export interface ActionInterface {
 export const reducer = (state: BookingInterface[], { type, payload }: ActionInterface)
     : BookingInterface[] => {
     switch (type) {
-        case 'added':
-            return [...state, payload]
+        case 'created':
+            return [...state, { ...payload, status: BookingStatus.Pending } ]
         case 'updated':
             return state.map(booking => {
                 if (booking.id === payload.id) {
                     return payload
+                } else {
+                    return booking
+                }
+            })
+        case 'confirmed':
+            return state.map(booking => {
+                if (booking.id === payload.id) {
+                    return { ...payload, status: BookingStatus.Confirmed }
                 } else {
                     return booking
                 }

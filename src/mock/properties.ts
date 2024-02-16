@@ -16,7 +16,7 @@ export const properties: Property[] = [
         description: "Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum ",
         tags: ['Ponta Verde', 'Maceió'],
         price: 999,
-        img: 'src/assets/apt.jpg',
+        img: '/src/assets/apt.jpg',
     },{
         id: 1109273,
         placeId: 2,
@@ -24,7 +24,7 @@ export const properties: Property[] = [
         description: "Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum ",
         tags: ['Boa Viagem', 'Pernambuco'],
         price: 564,
-        img: 'src/assets/lounge.jpg',
+        img: '/src/assets/lounge.jpg',
     },{
         id: 1073821,
         placeId: 3,
@@ -32,7 +32,7 @@ export const properties: Property[] = [
         description: "Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum ",
         tags: ['Cabo Branco', 'Paraíba'],
         price: 748,
-        img: 'src/assets/flat.jpg',
+        img: '/src/assets/flat.jpg',
     },
     {
         id: 118730,
@@ -41,7 +41,7 @@ export const properties: Property[] = [
         description: "Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum ",
         tags: ['Ponta Verde', 'Maceió'],
         price: 999,
-        img: 'src/assets/apt2.jpg',
+        img: '/src/assets/apt2.jpg',
     },{
         id: 1109274,
         placeId: 2,
@@ -49,7 +49,7 @@ export const properties: Property[] = [
         description: "Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum ",
         tags: ['Boa Viagem', 'Pernambuco'],
         price: 564,
-        img: 'src/assets/lounge2.jpg',
+        img: '/src/assets/lounge2.jpg',
     },{
         id: 1073822,
         placeId: 3,
@@ -57,6 +57,6 @@ export const properties: Property[] = [
         description: "Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum ",
         tags: ['Cabo Branco', 'Paraíba'],
         price: 748,
-        img: 'src/assets/flat2.jpg',
+        img: '/src/assets/flat2.jpg',
     }
 ]
