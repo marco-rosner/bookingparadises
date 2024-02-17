@@ -9,6 +9,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import { AlertPopup, DateField } from "../../components"
 
 import { useBookings, usePlaces, useProperties } from "../../hooks"
+import { checkOverlapping } from "../../lib/checkOverlapping"
 
 export const DetailsView = () => {
     const [startDate, setStartDate] = useState<Date>()
@@ -18,7 +19,7 @@ export const DetailsView = () => {
     const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
 
-    const { dispatch } = useBookings()
+    const { bookings, dispatch } = useBookings()
     let navigate = useNavigate()
     const { bookingId, propertyId } = useParams()
     const { data: properties } = useProperties()
@@ -47,16 +48,20 @@ export const DetailsView = () => {
     }, [success])
 
     const onClick = () => {
-        dispatch({
-            type: 'confirmed', payload: {
-                id: Number(bookingId),
-                price: price,
-                startDate: startDate,
-                endDate: endDate
-            }
-        })
+        if (checkOverlapping(Number(property?.id), bookings, { startDate, endDate })) {
+            dispatch({
+                type: 'confirmed', payload: {
+                    id: Number(bookingId),
+                    price: price,
+                    startDate: startDate,
+                    endDate: endDate
+                }
+            })
 
-        setSuccess(true)
+            setSuccess(true)
+        } else {
+            setError(true)
+        }
     }
 
     return (
@@ -109,7 +114,7 @@ export const DetailsView = () => {
                 <Button variant="contained" size="large" sx={{ textTransform: "none" }} onClick={onClick} disabled={error || !endDate}>Reserve this paradise</Button>
                 <AlertPopup
                     open={error}
-                    message="There is an error in the dates"
+                    message="There is an error in the dates or property not available for the dates"
                     severity="error" />
                 <AlertPopup
                     open={success}

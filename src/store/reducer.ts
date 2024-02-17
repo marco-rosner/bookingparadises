@@ -1,18 +1,4 @@
-import { Property } from "../types";
-
-export enum BookingStatus {
-    Pending = "PENDING",
-    Confirmed = "CONFIRMED"
-}
-
-export interface BookingInterface {
-    id: number;
-    status?: BookingStatus;
-    property?: Property;
-    startDate?: Date;
-    endDate?: Date;
-    price?: number;
-}
+import { BookingInterface, BookingStatus } from "../types";
 
 export interface ActionInterface {
     type: string;

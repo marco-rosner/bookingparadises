@@ -4,7 +4,7 @@ import { Box, Button, CardMedia, Grid, Paper, Table, TableBody, TableCell, Table
 
 import { AlertPopup } from "../../components/AlertPopup/AlertPopup"
 import { useBookings } from "../../hooks"
-import { BookingStatus } from "../../store/reducer"
+import { BookingStatus } from "../../types"
 
 export const ManageView = (): React.ReactElement => {
     const [isOpen, setOpen] = useState(false)

@@ -1,5 +1,6 @@
 import React, { Dispatch, Reducer, useReducer } from "react";
-import { ActionInterface, BookingInterface, reducer } from "../../store/reducer";
+import { ActionInterface, reducer } from "../../store/reducer";
+import { BookingInterface } from "../../types";
 
 interface ContextInterface {
     bookings: BookingInterface[];

@@ -36,6 +36,8 @@ export const BookingForm = (): React.ReactElement => {
         if (startDate && endDate) {
             if (dayjs(startDate).isAfter(endDate) || dayjs(endDate).isBefore(startDate)){
                 setError(true)
+            } else {
+                setError(false)
             }
         }
     }, [startDate, endDate])

@@ -6,7 +6,8 @@ import { Box, Button, CardMedia, Grid, Paper, Table, TableBody, TableCell, Table
 
 import { useBookings, useProperties } from "../../hooks"
 import { AlertPopup } from "../../components"
-import { Property } from "../../types"
+import { BookingInterface, Property } from "../../types"
+import { filterProperties } from "../../lib/filterProperties"
 
 export const ListView = (): React.ReactElement => {
     const { data: properties } = useProperties()
@@ -16,8 +17,8 @@ export const ListView = (): React.ReactElement => {
     let navigate = useNavigate()
     let { bookingId, placeId } = useParams()
 
-    const filteredProperties = properties.filter(property => property.placeId === Number(placeId))
-    const currentBooking = bookings.find((booking) => booking.id === Number(bookingId))
+    const filteredProperties = filterProperties(properties, Number(bookingId), Number(placeId), bookings)
+    const currentBooking = bookings.find((booking: BookingInterface) => booking.id === Number(bookingId))
     const days = dayjs(currentBooking?.endDate).diff(dayjs(currentBooking?.startDate), "day")
 
     const onClick = (id: number) => {
@@ -45,7 +46,7 @@ export const ListView = (): React.ReactElement => {
                 lg={12}
                 xl={12}
             >
-            <Typography variant="h4">Reserve your paradise right here!</Typography>
+                <Typography variant="h4">Reserve your paradise right here!</Typography>
                 <TableContainer
                     component={Paper}
                     sx={{
