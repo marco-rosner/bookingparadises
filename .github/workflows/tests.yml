@@ -1,4 +1,4 @@
-name: Test
+name: Unit Tests
 
 run-name: ${{ github.actor }} is testing > ${{ github.event.head_commit.message }}
 
