@@ -16,13 +16,17 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
-    
+    "esModuleInterop": true,
+
     // for sylted components
     "paths": {
       "@mui/styled-engine": [
         "./node_modules/@mui/styled-engine-sc"
       ]
     },
+
+    "types": ["@testing-library/jest-dom"],
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -32,6 +36,7 @@
   "include": [
     "src"
   ],
+  "exclude": ["cypress.config.ts", "cypress", "node_modules"],
   "references": [
     {
       "path": "./tsconfig.node.json"

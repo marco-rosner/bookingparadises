@@ -34,7 +34,7 @@ export const BookingForm = (): React.ReactElement => {
 
     useEffect(() => {
         if (startDate && endDate) {
-            if (dayjs(startDate).isAfter(endDate) || dayjs(endDate).isBefore(startDate)){
+            if (dayjs(startDate).isAfter(endDate) || dayjs(endDate).isBefore(startDate)) {
                 setError(true)
             } else {
                 setError(false)
