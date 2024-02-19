@@ -13,6 +13,7 @@ import { DateField } from "../DateField/DateField";
 import { AlertPopup } from "../AlertPopup/AlertPopup";
 import { PlaceField } from "../PlaceField/PlaceField";
 import { useBookings, useNextId } from "../../hooks";
+import { ActionType } from "../../store/reducer";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -43,7 +44,7 @@ export const BookingForm = (): React.ReactElement => {
     }, [startDate, endDate])
 
     const onClick = () => {
-        dispatch({ type: 'created', payload: { id: nextId, startDate, endDate } })
+        dispatch({ type: ActionType.Created, payload: { id: nextId, startDate, endDate } })
 
         navigate(`/bookings/${nextId}/places/${placeId}`)
     }

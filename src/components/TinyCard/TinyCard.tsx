@@ -4,6 +4,7 @@ import { Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material
 
 import { useBookings, useNextId } from "../../hooks";
 import { Property } from "../../types";
+import { ActionType } from "../../store/reducer";
 
 interface TinyCardInterface {
     property: Property
@@ -16,7 +17,7 @@ export const TinyCard = ({ property }: TinyCardInterface): React.ReactElement =>
     const { id, name, img, tags, price } = property
 
     const onClick = () => {
-        dispatch({ type: 'created', payload: { id: nextId, property }})
+        dispatch({ type: ActionType.Created, payload: { id: nextId, property }})
 
         navigate(`/bookings/${nextId}/properties/${id}`)
     }

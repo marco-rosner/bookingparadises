@@ -5,6 +5,7 @@ import { Box, Button, CardMedia, Grid, Paper, Table, TableBody, TableCell, Table
 import { AlertPopup } from "../../components/AlertPopup/AlertPopup"
 import { useBookings } from "../../hooks"
 import { BookingStatus } from "../../types"
+import { ActionType } from "../../store/reducer"
 
 export const ManageView = (): React.ReactElement => {
     const [isOpen, setOpen] = useState(false)
@@ -14,7 +15,7 @@ export const ManageView = (): React.ReactElement => {
     )
 
     const onClick = (id: number) => {
-        dispatch({ type: 'deleted', payload: { id } })
+        dispatch({ type: ActionType.Deleted, payload: { id } })
 
         setOpen(true)
     }

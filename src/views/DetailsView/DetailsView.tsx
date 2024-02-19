@@ -7,9 +7,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 
 import { AlertPopup, DateField } from "../../components"
-
 import { useBookings, usePlaces, useProperties } from "../../hooks"
-import { checkOverlapping } from "../../lib/checkOverlapping"
+import { isDatesOverlap } from "../../lib/isDatesOverlap"
+import { ActionType } from "../../store/reducer"
 
 export const DetailsView = () => {
     const [startDate, setStartDate] = useState<Date>()
@@ -48,9 +48,9 @@ export const DetailsView = () => {
     }, [success])
 
     const onClick = () => {
-        if (checkOverlapping(Number(property?.id), bookings, { startDate, endDate })) {
+        if (!isDatesOverlap(Number(property?.id), bookings, { startDate, endDate })) {
             dispatch({
-                type: 'confirmed', payload: {
+                type: ActionType.Confirmed, payload: {
                     id: Number(bookingId),
                     price: price,
                     startDate: startDate,

@@ -4,6 +4,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/m
 
 import { useBookings, useNextId } from "../../hooks";
 import { Property } from "../../types";
+import { ActionType } from "../../store/reducer";
 
 interface HighlightCardInterface {
     property: Property
@@ -16,7 +17,7 @@ export const HighlightCard = ({ property }: HighlightCardInterface): React.React
     const { id, img, name, description } = property
     
     const onClick = () => {
-        dispatch({ type: 'created', payload: { id: nextId, property, }})
+        dispatch({ type: ActionType.Created, payload: { id: nextId, property, }})
 
         navigate(`/bookings/${nextId}/properties/${id}`)
     }

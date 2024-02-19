@@ -8,6 +8,7 @@ import { useBookings, useProperties } from "../../hooks"
 import { AlertPopup } from "../../components"
 import { BookingInterface, Property } from "../../types"
 import { filterProperties } from "../../lib/filterProperties"
+import { ActionType } from "../../store/reducer"
 
 export const ListView = (): React.ReactElement => {
     const { data: properties } = useProperties()
@@ -24,7 +25,7 @@ export const ListView = (): React.ReactElement => {
     const onClick = (id: number) => {
         const property = filteredProperties.find(p => p.id === id)
 
-        dispatch({ type: 'confirmed', payload: { ...currentBooking, id: Number(bookingId), property, price: days * (property?.price || 1) } })
+        dispatch({ type: ActionType.Confirmed, payload: { ...currentBooking, id: Number(bookingId), property, price: days * (property?.price || 1) } })
 
         setSuccess(true)
     }

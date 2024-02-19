@@ -1,5 +1,12 @@
 import { BookingInterface, BookingStatus } from "../types";
 
+export enum ActionType {
+    Created = 'CREATED',
+    Updated = 'UPDATED',
+    Confirmed = 'CONFIRMED',
+    Deleted = 'DELETED'
+}
+
 export interface ActionInterface {
     type: string;
     payload: BookingInterface
@@ -8,9 +15,9 @@ export interface ActionInterface {
 export const reducer = (state: BookingInterface[], { type, payload }: ActionInterface)
     : BookingInterface[] => {
     switch (type) {
-        case 'created':
+        case ActionType.Created:
             return [...state, { ...payload, status: BookingStatus.Pending } ]
-        case 'updated':
+        case ActionType.Updated:
             return state.map(booking => {
                 if (booking.id === payload.id) {
                     return { ...booking, ...payload }
@@ -18,7 +25,7 @@ export const reducer = (state: BookingInterface[], { type, payload }: ActionInte
                     return booking
                 }
             })
-        case 'confirmed':
+        case ActionType.Confirmed:
             return state.map(booking => {
                 if (booking.id === payload.id) {
                     return { ...booking, ...payload, status: BookingStatus.Confirmed }
@@ -26,7 +33,7 @@ export const reducer = (state: BookingInterface[], { type, payload }: ActionInte
                     return booking
                 }
             })
-        case 'deleted':
+        case ActionType.Deleted:
             return state.filter((booking) => booking.id !== payload.id)
         default:
             new Error('Action not supported')
