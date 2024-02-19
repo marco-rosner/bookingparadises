@@ -6,18 +6,24 @@ import { AlertPopup } from "../../components/AlertPopup/AlertPopup"
 import { useBookings } from "../../hooks"
 import { BookingStatus } from "../../types"
 import { ActionType } from "../../store/reducer"
+import { useNavigate } from "react-router-dom"
 
 export const ManageView = (): React.ReactElement => {
     const [isOpen, setOpen] = useState(false)
     const { bookings, dispatch } = useBookings()
-    const filteredBookings = bookings.filter(
+    let navigate = useNavigate()
+    const confirmedBookings = bookings.filter(
         booking => booking.status != BookingStatus.Pending
     )
 
-    const onClick = (id: number) => {
+    const onDelete = (id: number) => {
         dispatch({ type: ActionType.Deleted, payload: { id } })
 
         setOpen(true)
+    }
+
+    const onUpdate = (bookingId: number, propertyId: number | undefined) => {
+        navigate(`/bookings/${bookingId}/properties/${propertyId}`)
     }
 
     return (
@@ -57,11 +63,11 @@ export const ManageView = (): React.ReactElement => {
 
                         </TableHead>
                         <TableBody>
-                            {filteredBookings.length === 0 ? (
+                            {confirmedBookings.length === 0 ? (
                                 <TableRow>
                                     <TableCell align="center" colSpan={7}>No Bookings</TableCell>
                                 </TableRow>
-                            ) : filteredBookings.map(({ id, property, startDate, endDate, price }) => {
+                            ) : confirmedBookings.map(({ id, property, startDate, endDate, price }) => {
                                 const fromDate = `${dayjs(startDate).format("MMM")} ${dayjs(startDate).format('DD')}`
                                 const toDate = `${dayjs(endDate).format("MMM")} ${dayjs(endDate).format('DD')}`
 
@@ -82,9 +88,22 @@ export const ManageView = (): React.ReactElement => {
                                         <TableCell align="center">{`$ ${price}`}</TableCell>
                                         <TableCell align="center">{`From ${fromDate} to ${toDate}`}</TableCell>
                                         <TableCell align="center">
-                                            <Button variant="contained" sx={{ textTransform: "none" }} color="secondary" onClick={() => onClick(id)}>
-                                                Delete
-                                            </Button>
+                                            <Box sx={{ display: "flex", flexDirection: "column" }}>
+                                                <Button 
+                                                    variant="contained"
+                                                    color="primary"
+                                                    sx={{ textTransform: "none", marginBottom: '15px' }}
+                                                    onClick={() => onUpdate(id, property?.id)}>
+                                                    Update
+                                                </Button>
+                                                <Button
+                                                    variant="contained"
+                                                    sx={{ textTransform: "none" }}
+                                                    color="secondary"
+                                                    onClick={() => onDelete(id)}>
+                                                    Delete
+                                                </Button>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
                                 )

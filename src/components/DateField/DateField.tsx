@@ -1,17 +1,20 @@
 import React from "react";
 import { DatePicker } from "@mui/x-date-pickers";
+import { Dayjs } from "dayjs";
 
 interface DateField {
     label: string;
     error: boolean;
     color?: string;
-    setDate: React.Dispatch<React.SetStateAction<Date | undefined>>
+    value?: Date | Dayjs; 
+    setDate: React.Dispatch<React.SetStateAction<Date | Dayjs>>
 }
 
-export const DateField = ({ label, error, color, setDate }: DateField): React.ReactElement => (
+export const DateField = ({ label, error, color, value, setDate }: DateField): React.ReactElement => (
     <DatePicker
         label={label}
-        onChange={(sDate: Date | null) => sDate && setDate(sDate)}
+        onChange={(sDate: Date | Dayjs | null) => sDate && setDate(sDate)}
+        value={value}
         slotProps={{
             textField: {
                 error: error,

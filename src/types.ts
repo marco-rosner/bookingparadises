@@ -1,3 +1,5 @@
+import { Dayjs } from "dayjs";
+
 export interface Place {
     id: number,
     name: string,
@@ -25,8 +27,8 @@ export interface BookingInterface {
     id: number;
     status?: BookingStatus;
     property?: Property;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: Date | Dayjs;
+    endDate?: Date | Dayjs;
     price?: number;
 }
 
@@ -36,6 +38,6 @@ export enum BookingStatus {
 }
 
 export interface StartEndDates {
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: Date | Dayjs;
+    endDate?: Date | Dayjs;
 }

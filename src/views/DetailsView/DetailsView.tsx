@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import dayjs from "dayjs"
+import dayjs, { Dayjs } from "dayjs"
 
 import { Box, Button, CardMedia, Grid, Typography } from "@mui/material"
 import { LocalizationProvider } from "@mui/x-date-pickers"
@@ -10,14 +10,16 @@ import { AlertPopup, DateField } from "../../components"
 import { useBookings, usePlaces, useProperties } from "../../hooks"
 import { isDatesOverlap } from "../../lib/isDatesOverlap"
 import { ActionType } from "../../store/reducer"
+import { BookingStatus } from "../../types"
 
-export const DetailsView = () => {
-    const [startDate, setStartDate] = useState<Date>()
-    const [endDate, setEndDate] = useState<Date>()
-    const [price, setPrice] = useState<number>()
-    const [days, setDays] = useState<number>()
-    const [error, setError] = useState(false)
-    const [success, setSuccess] = useState(false)
+export const DetailsView = (): React.ReactElement => {
+    const today = dayjs()
+    const todayPlus3 = today.add(3, "day")
+    const [startDate, setStartDate] = useState<Date | Dayjs>(today)
+    const [endDate, setEndDate] = useState<Date | Dayjs>(todayPlus3)
+    const [price, setPrice] = useState<number>(0)
+    const [error, setError] = useState<boolean>(false)
+    const [success, setSuccess] = useState<boolean>(false)
 
     const { bookings, dispatch } = useBookings()
     let navigate = useNavigate()
@@ -28,6 +30,19 @@ export const DetailsView = () => {
     const place = places.find(p => p.id === property?.placeId)
 
     useEffect(() => {
+        const currentBooking = bookings.find(b => b.id === Number(bookingId))
+
+        if (currentBooking) {
+            setStartDate(currentBooking.startDate || startDate)
+            setEndDate(currentBooking.endDate || endDate)
+
+            const days = dayjs(endDate).diff(dayjs(startDate), "day")
+            console.log(property?.price)
+            setPrice(days * Number(property?.price))
+        }
+    }, [properties, bookings])
+
+    useEffect(() => {
         if (startDate && endDate) {
             if (dayjs(startDate).isAfter(endDate) || dayjs(endDate).isBefore(startDate)) {
                 setError(true)
@@ -35,13 +50,10 @@ export const DetailsView = () => {
                 setError(false)
             }
 
-            setDays(dayjs(endDate).diff(dayjs(startDate), "day"))
+            const days = dayjs(endDate).diff(dayjs(startDate), "day")
+            setPrice(days * Number(property?.price))
         }
     }, [startDate, endDate])
-
-    useEffect(() => {
-        setPrice(Number(days) * Number(property?.price))
-    }, [days])
 
     useEffect(() => {
         if (success) setTimeout(() => navigate("/manage"), 3000)
@@ -50,8 +62,9 @@ export const DetailsView = () => {
     const onClick = () => {
         if (!isDatesOverlap(Number(property?.id), bookings, { startDate, endDate })) {
             dispatch({
-                type: ActionType.Confirmed, payload: {
+                type: ActionType.Updated, payload: {
                     id: Number(bookingId),
+                    status: BookingStatus.Confirmed,
                     price: price,
                     startDate: startDate,
                     endDate: endDate
@@ -96,20 +109,16 @@ export const DetailsView = () => {
                     <Grid container sx={{ direction: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
                         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en'}>
                             <Box sx={{ margin: '5px' }}>
-                                <DateField label="Start Date" error={error} color="#000" setDate={setStartDate} />
+                                <DateField label="Start Date" error={error} color="#000" value={startDate} setDate={setStartDate} />
                             </Box>
                             <Box sx={{ margin: '5px' }}>
-                                <DateField label="End Date" error={error} color="#000" setDate={setEndDate} />
+                                <DateField label="End Date" error={error} color="#000" value={endDate} setDate={setEndDate} />
                             </Box>
                         </LocalizationProvider>
                     </Grid>
                 </Box>
                 <Typography variant="h6" sx={{ margin: '10px' }}>
-                    {
-                        !endDate || error ?
-                            "Total price: Choose the dates to see the total price" :
-                            `Total price: ${price}`
-                    }
+                    {`Total price: ${price < 0 ? 0 : price}`}
                 </Typography>
                 <Button variant="contained" size="large" sx={{ textTransform: "none" }} onClick={onClick} disabled={error || !endDate}>Reserve this paradise</Button>
                 <AlertPopup
