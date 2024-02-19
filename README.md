@@ -1,10 +1,10 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Unit Test workflow](https://github.com/marco-rosner/bookings/actions/workflows/tests.yml/badge.svg)](https://github.com/marco-rosner/bookings/actions/workflows/tests.yml) [![E2E Test workflow](https://github.com/marco-rosner/bookings/actions/workflows/e2e-tests.yml/badge.svg)](https://github.com/marco-rosner/bookings/actions/workflows/e2e-tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Unit Test workflow](https://github.com/marco-rosner/bookingparadises/actions/workflows/tests.yml/badge.svg)](https://github.com/marco-rosner/bookingparadises/actions/workflows/tests.yml) [![E2E Test workflow](https://github.com/marco-rosner/bookingparadises/actions/workflows/e2e-tests.yml/badge.svg)](https://github.com/marco-rosner/bookingparadises/actions/workflows/e2e-tests.yml)
 
-# Booking Paradise
+# Booking Paradises
 
-Booking Paradise is a mobile-friendly application focused in manage bookings for amazing places where you can live perfect moments with your beloved ones.
+Booking Paradises is a mobile-friendly application that manages bookings for amazing places where you can live perfect moments with your loved ones.
 
-![Booking Paradise](./src/assets/bookingParadises.png?raw=true "Booking Paradise")
+![Booking Paradises](./src/assets/bookingParadises.png?raw=true "Booking Paradises")
 
 The project was built using Typescript, ReactJS, Material UI, Vite, React Router, Hooks, Context API, React Redux, Jest (Unit Tests) and Cypress (E2E Tests).
 
@@ -22,9 +22,11 @@ Run in the dev mode:
 yarn dev
 ```
 
+Served at http://localhost:5173 
+
 ## Docker
 
-To run this project using Docker run these command:
+To run this project using Docker run these commands:
 
 ```sh
 docker build . -t marcorosner/bookingsparadises
@@ -47,13 +49,11 @@ There are many scripts in `package.json` like:
 
 ## GitHub Actions
 
-To avoid failures, two GitHub Actions was created:
-
-- Unit Test - To run the Unit Tests
-- E2E Test - To run the E2E Tests 
+To prevent regression defects, two GitHub Actions was created [Unit Test](https://github.com/marco-rosner/bookingparadises/actions/workflows/tests.yml) and [E2E Test](https://github.com/marco-rosner/bookingparadises/actions/workflows/e2e-tests.yml).
 
 ## Future work
 
 - HighlightTrack and TinyTrack with slides
-- Add internacionalization
-- Create a server to remove the mocks
+- Add i18n internacionalization
+- Create a NodeJS/ExpressJS server to remove the mocks
+- ...

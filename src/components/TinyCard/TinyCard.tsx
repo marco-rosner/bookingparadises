@@ -13,7 +13,7 @@ interface TinyCardInterface {
 export const TinyCard = ({ property }: TinyCardInterface): React.ReactElement => {
     const { dispatch } = useBookings()
     const { nextId } = useNextId()
-    let navigate = useNavigate()
+    const navigate = useNavigate()
     const { id, name, img, tags, price } = property
 
     const onClick = () => {

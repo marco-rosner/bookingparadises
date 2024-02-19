@@ -15,8 +15,8 @@ export const ListView = (): React.ReactElement => {
     const { bookings, dispatch } = useBookings()
     const [success, setSuccess] = useState(false)
 
-    let navigate = useNavigate()
-    let { bookingId, placeId } = useParams()
+    const navigate = useNavigate()
+    const { bookingId, placeId } = useParams()
 
     const filteredProperties = filterProperties(properties, Number(bookingId), Number(placeId), bookings)
     const currentBooking = bookings.find((booking: BookingInterface) => booking.id === Number(bookingId))

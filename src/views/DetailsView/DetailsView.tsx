@@ -22,7 +22,7 @@ export const DetailsView = (): React.ReactElement => {
     const [success, setSuccess] = useState<boolean>(false)
 
     const { bookings, dispatch } = useBookings()
-    let navigate = useNavigate()
+    const navigate = useNavigate()
     const { bookingId, propertyId } = useParams()
     const { data: properties } = useProperties()
     const { data: places } = usePlaces()

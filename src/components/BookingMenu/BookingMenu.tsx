@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Avatar, Box, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material"
 
 export const BookingMenu = (): React.ReactElement => {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl)
 

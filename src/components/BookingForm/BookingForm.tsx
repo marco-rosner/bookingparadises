@@ -25,7 +25,7 @@ export const BookingForm = (): React.ReactElement => {
     const [error, setError] = useState(false)
     const { dispatch } = useBookings()
     const { nextId } = useNextId()
-    let navigate = useNavigate()
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (startDate && endDate) {

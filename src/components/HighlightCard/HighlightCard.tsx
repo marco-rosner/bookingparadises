@@ -13,7 +13,7 @@ interface HighlightCardInterface {
 export const HighlightCard = ({ property }: HighlightCardInterface): React.ReactElement => {
     const { dispatch } = useBookings()
     const { nextId } = useNextId()
-    let navigate = useNavigate()
+    const navigate = useNavigate()
     const { id, img, name, description } = property
     
     const onClick = () => {
