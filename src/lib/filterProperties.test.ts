@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { properties } from '../mock/properties'
 import { BookingStatus } from '../types'
 import { filterProperties } from './filterProperties'
@@ -9,8 +10,8 @@ describe("filterProperties", () => {
             id: bookingId,
             status: BookingStatus.Pending,
             property: properties[0],
-            startDate: new Date(2024, 1, 20),
-            endDate: new Date(2024, 1, 23),
+            startDate: dayjs("2024-1-20"),
+            endDate: dayjs("2024-1-23"),
         }]
 
         const propertiesFilteredWithSamePlace = properties.filter(
@@ -28,15 +29,15 @@ describe("filterProperties", () => {
             id: bookingId,
             status: BookingStatus.Pending,
             property: properties[0],
-            startDate: new Date(2024, 1, 20),
-            endDate: new Date(2024, 1, 23),
+            startDate: dayjs("2024-1-20"),
+            endDate: dayjs("2024-1-23"),
         },
         {
             id: 2,
             status: BookingStatus.Confirmed,
             property: properties[0],
-            startDate: new Date(2024, 1, 19),
-            endDate: new Date(2024, 1, 23),
+            startDate: dayjs("2024-1-19"),
+            endDate: dayjs("2024-1-23"),
         }]
 
         const propertiesFiltered = properties.filter(
@@ -54,15 +55,15 @@ describe("filterProperties", () => {
             id: bookingId,
             status: BookingStatus.Pending,
             property: properties[0],
-            startDate: new Date(2024, 1, 25),
-            endDate: new Date(2024, 1, 27),
+            startDate: dayjs("2024-1-25"),
+            endDate: dayjs("2024-1-27"),
         },
         {
             id: 2,
             status: BookingStatus.Confirmed,
             property: properties[0],
-            startDate: new Date(2024, 1, 19),
-            endDate: new Date(2024, 1, 23),
+            startDate: dayjs("2024-1-19"),
+            endDate: dayjs("2024-1-23"),
         }]
 
         const propertiesFilteredWithSamePlace = properties.filter(
@@ -80,15 +81,15 @@ describe("filterProperties", () => {
             id: bookingId,
             status: BookingStatus.Pending,
             property: properties[0],
-            startDate: new Date(2024, 1, 20),
-            endDate: new Date(2024, 1, 23),
+            startDate: dayjs("2024-1-20"),
+            endDate: dayjs("2024-1-23"),
         },
         {
             id: 2,
             status: BookingStatus.Confirmed,
             property: properties[1],
-            startDate: new Date(2024, 1, 19),
-            endDate: new Date(2024, 1, 23),
+            startDate: dayjs("2024-1-19"),
+            endDate: dayjs("2024-1-23"),
         }]
 
         const propertiesFiltered = properties.filter(p => p.placeId === properties[0].placeId)

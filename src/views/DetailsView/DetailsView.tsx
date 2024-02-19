@@ -15,8 +15,8 @@ import { BookingStatus } from "../../types"
 export const DetailsView = (): React.ReactElement => {
     const today = dayjs()
     const todayPlus3 = today.add(3, "day")
-    const [startDate, setStartDate] = useState<Date | Dayjs>(today)
-    const [endDate, setEndDate] = useState<Date | Dayjs>(todayPlus3)
+    const [startDate, setStartDate] = useState<Dayjs | undefined>(today)
+    const [endDate, setEndDate] = useState<Dayjs | undefined>(todayPlus3)
     const [price, setPrice] = useState<number>(0)
     const [error, setError] = useState<boolean>(false)
     const [success, setSuccess] = useState<boolean>(false)

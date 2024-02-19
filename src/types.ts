@@ -27,8 +27,8 @@ export interface BookingInterface {
     id: number;
     status?: BookingStatus;
     property?: Property;
-    startDate?: Date | Dayjs;
-    endDate?: Date | Dayjs;
+    startDate?: Dayjs;
+    endDate?: Dayjs;
     price?: number;
 }
 
@@ -38,6 +38,6 @@ export enum BookingStatus {
 }
 
 export interface StartEndDates {
-    startDate?: Date | Dayjs;
-    endDate?: Date | Dayjs;
+    startDate?: Dayjs;
+    endDate?: Dayjs;
 }

@@ -4,7 +4,7 @@ import { Button, Grid } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import 'dayjs/locale/en'
@@ -18,16 +18,10 @@ import { ActionType } from "../../store/reducer";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-export interface FormState {
-    placeId: number;
-    startDate?: Date;
-    endDate?: Date;
-}
-
 export const BookingForm = (): React.ReactElement => {
     const [placeId, setPlaceId] = useState<number>()
-    const [startDate, setStartDate] = useState<Date>()
-    const [endDate, setEndDate] = useState<Date>()
+    const [startDate, setStartDate] = useState<Dayjs>()
+    const [endDate, setEndDate] = useState<Dayjs>()
     const [error, setError] = useState(false)
     const { dispatch } = useBookings()
     const { nextId } = useNextId()

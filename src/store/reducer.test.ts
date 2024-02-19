@@ -1,3 +1,4 @@
+import dayjs from "dayjs"
 import { properties } from "../mock/properties"
 import { BookingInterface, BookingStatus } from "../types"
 import { ActionInterface, ActionType, reducer } from "./reducer"
@@ -8,8 +9,8 @@ describe("reducer", () => {
         const bookingPending: BookingInterface = {
             id: 1,
             property: properties[0],
-            startDate: new Date(2024, 1, 25),
-            endDate: new Date(2024, 1, 27),
+            startDate: dayjs("2024-1-25"),
+            endDate: dayjs("2024-1-27"),
         }
         const action: ActionInterface = {
             type: ActionType.Created,
@@ -25,22 +26,22 @@ describe("reducer", () => {
             id: 1,
             status: BookingStatus.Pending,
             property: properties[0],
-            startDate: new Date(2024, 1, 25),
-            endDate: new Date(2024, 1, 27),
+            startDate: dayjs("2024-1-25"),
+            endDate: dayjs("2024-1-27"),
         },
         {
             id: 2,
             status: BookingStatus.Confirmed,
             property: properties[0],
-            startDate: new Date(2024, 1, 25),
-            endDate: new Date(2024, 1, 27),
+            startDate: dayjs("2024-1-25"),
+            endDate: dayjs("2024-1-27"),
         }]
         const bookingChanged: BookingInterface = {
             id: 1,
             status: BookingStatus.Pending,
             property: properties[0],
-            startDate: new Date(2024, 1, 19),
-            endDate: new Date(2024, 1, 20),
+            startDate: dayjs("2024-1-19"),
+            endDate: dayjs("2024-1-20"),
         }
         const action: ActionInterface = {
             type: ActionType.Updated,
@@ -55,22 +56,22 @@ describe("reducer", () => {
             id: 1,
             status: BookingStatus.Pending,
             property: properties[0],
-            startDate: new Date(2024, 1, 25),
-            endDate: new Date(2024, 1, 27),
+            startDate: dayjs("2024-1-25"),
+            endDate: dayjs("2024-1-27"),
         },
         {
             id: 2,
             status: BookingStatus.Confirmed,
             property: properties[0],
-            startDate: new Date(2024, 1, 25),
-            endDate: new Date(2024, 1, 27),
+            startDate: dayjs("2024-1-25"),
+            endDate: dayjs("2024-1-27"),
         }]
         const bookingChanged: BookingInterface = {
             id: 1,
             status: BookingStatus.Confirmed,
             property: properties[0],
-            startDate: new Date(2024, 1, 19),
-            endDate: new Date(2024, 1, 20),
+            startDate: dayjs("2024-1-19"),
+            endDate: dayjs("2024-1-20"),
         }
         const action: ActionInterface = {
             type: ActionType.Confirmed,
@@ -85,8 +86,8 @@ describe("reducer", () => {
             id: 1,
             status: BookingStatus.Confirmed,
             property: properties[0],
-            startDate: new Date(2024, 1, 25),
-            endDate: new Date(2024, 1, 27),
+            startDate: dayjs("2024-1-25"),
+            endDate: dayjs("2024-1-27"),
         }]
         const action: ActionInterface = {
             type: ActionType.Deleted,

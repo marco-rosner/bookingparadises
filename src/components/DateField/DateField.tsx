@@ -6,14 +6,14 @@ interface DateField {
     label: string;
     error: boolean;
     color?: string;
-    value?: Date | Dayjs; 
-    setDate: React.Dispatch<React.SetStateAction<Date | Dayjs>>
+    value?: Dayjs | undefined; 
+    setDate: React.Dispatch<React.SetStateAction<Dayjs | undefined>>
 }
 
 export const DateField = ({ label, error, color, value, setDate }: DateField): React.ReactElement => (
     <DatePicker
         label={label}
-        onChange={(sDate: Date | Dayjs | null) => sDate && setDate(sDate)}
+        onChange={(date: Dayjs | null) => date && setDate(date)}
         value={value}
         slotProps={{
             textField: {
