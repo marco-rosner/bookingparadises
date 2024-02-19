@@ -13,6 +13,7 @@ export const PlaceField = ({ label, setPlaceId }: NameField): React.ReactElement
     return (
         <Autocomplete<Pick<Place, "name" | "id">, false, true, true>
             id="searchPlace"
+            data-cy="searchPlace"
             freeSolo
             disableClearable
             options={places.map((place) => ({ name: place.name, id: place.id }))}

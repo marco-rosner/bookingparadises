@@ -86,7 +86,7 @@ export const ListView = (): React.ReactElement => {
                                     <TableCell>{description}</TableCell>
                                     <TableCell align="center">{`$ ${days * price}`}</TableCell>
                                     <TableCell align="center">
-                                        <Button variant="contained" sx={{ textTransform: "none" }} onClick={() => onClick(id)}>
+                                        <Button variant="contained" data-cy={`reserve-${id}`} sx={{ textTransform: "none" }} onClick={() => onClick(id)}>
                                             Reserve this paradise
                                         </Button>
                                     </TableCell>

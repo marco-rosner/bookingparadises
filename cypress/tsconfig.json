@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "es5",
+    "lib": [
+      "es5",
+      "dom"
+    ],
+    "types": [
+      "cypress",
+      "node"
+    ],
+    "outDir": ".",
+    "rootDir": "."
+  },
+  "include": [
+    "./**/*.cy.ts"
+  ],
+  "exclude": [
+    "../cypress.config.ts"
+  ]
+}

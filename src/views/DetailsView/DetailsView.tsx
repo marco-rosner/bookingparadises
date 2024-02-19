@@ -109,10 +109,10 @@ export const DetailsView = (): React.ReactElement => {
                     <Grid container sx={{ direction: 'row', justifyContent: 'space-evenly', alignContent: 'center' }}>
                         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en'}>
                             <Box sx={{ margin: '5px' }}>
-                                <DateField label="Start Date" error={error} color="#000" value={startDate} setDate={setStartDate} />
+                                <DateField label="Start Date" id="update-start-date" error={error} color="#000" value={startDate} setDate={setStartDate} />
                             </Box>
                             <Box sx={{ margin: '5px' }}>
-                                <DateField label="End Date" error={error} color="#000" value={endDate} setDate={setEndDate} />
+                                <DateField label="End Date" id="update-end-date" error={error} color="#000" value={endDate} setDate={setEndDate} />
                             </Box>
                         </LocalizationProvider>
                     </Grid>
@@ -120,7 +120,7 @@ export const DetailsView = (): React.ReactElement => {
                 <Typography variant="h6" sx={{ margin: '10px' }}>
                     {`Total price: ${price < 0 ? 0 : price}`}
                 </Typography>
-                <Button variant="contained" size="large" sx={{ textTransform: "none" }} onClick={onClick} disabled={error || !endDate}>Reserve this paradise</Button>
+                <Button variant="contained" data-cy="update-button" size="large" sx={{ textTransform: "none" }} onClick={onClick} disabled={error || !endDate}>Reserve this paradise</Button>
                 <AlertPopup
                     open={error}
                     message="There is an error in the dates or property not available for the dates"

@@ -3,6 +3,7 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { Dayjs } from "dayjs";
 
 interface DateField {
+    id: string;
     label: string;
     error: boolean;
     color?: string;
@@ -10,13 +11,14 @@ interface DateField {
     setDate: React.Dispatch<React.SetStateAction<Dayjs | undefined>>
 }
 
-export const DateField = ({ label, error, color, value, setDate }: DateField): React.ReactElement => (
+export const DateField = ({ id, label, error, color, value, setDate }: DateField): React.ReactElement => (
     <DatePicker
         label={label}
         onChange={(date: Dayjs | null) => date && setDate(date)}
         value={value}
         slotProps={{
             textField: {
+                id: id,
                 error: error,
                 sx: {
                     minWidth: '200px',

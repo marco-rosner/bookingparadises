@@ -26,6 +26,7 @@ export const BookingMenu = (): React.ReactElement => {
                     <Tooltip title="User account">
                         <IconButton
                             onClick={onClick}
+                            data-cy="user-menu"
                             size="small"
                             aria-controls={open ? 'account-menu' : undefined}
                             aria-haspopup="true"
@@ -71,7 +72,7 @@ export const BookingMenu = (): React.ReactElement => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={() => { onClose(); navigate("/manage") }}>
+                <MenuItem data-cy="manage-user-menu"onClick={() => { onClose(); navigate("/manage") }}>
                     Manage bookings
                 </MenuItem>
             </Menu>

@@ -4,6 +4,7 @@ exports[`PlaceField snapshot 1`] = `
 <div
   aria-owns={null}
   className="MuiAutocomplete-root-fOsZCx jWEuPF MuiAutocomplete-root"
+  data-cy="searchPlace"
   onClick={[Function]}
   onKeyDown={[Function]}
   onMouseDown={[Function]}

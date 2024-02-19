@@ -91,6 +91,7 @@ export const ManageView = (): React.ReactElement => {
                                             <Box sx={{ display: "flex", flexDirection: "column" }}>
                                                 <Button 
                                                     variant="contained"
+                                                    data-cy={`update-booking-${id}`}
                                                     color="primary"
                                                     sx={{ textTransform: "none", marginBottom: '15px' }}
                                                     onClick={() => onUpdate(id, property?.id)}>
@@ -98,6 +99,7 @@ export const ManageView = (): React.ReactElement => {
                                                 </Button>
                                                 <Button
                                                     variant="contained"
+                                                    data-cy={`delete-booking-${id}`}
                                                     sx={{ textTransform: "none" }}
                                                     color="secondary"
                                                     onClick={() => onDelete(id)}>

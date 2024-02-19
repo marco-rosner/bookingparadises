@@ -8,7 +8,7 @@ describe("DateField", () => {
         const snapshot = renderer
             .create(
                 <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en'}>
-                    <DateField label="Start Date" error={false} setDate={jest.fn()} />
+                    <DateField label="Start Date" id="start" error={false} setDate={jest.fn()} />
                 </LocalizationProvider>)
             .toJSON();
 
