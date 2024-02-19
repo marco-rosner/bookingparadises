@@ -8,12 +8,10 @@
     "dev": "vite",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest src --coverage",
+    "test:coverage": "jest --coverage",
     "test:e2e": "start-server-and-test dev http-get://localhost:5173 cypress",
-    "cypress": "cypress run",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
