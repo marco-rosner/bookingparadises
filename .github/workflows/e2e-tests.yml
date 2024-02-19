@@ -1,0 +1,24 @@
+name: E2E Tests
+
+run-name: ${{ github.actor }} is testing > ${{ github.event.head_commit.message }}
+
+on: push
+
+jobs:
+  Testing:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+            node-version: '20'
+
+      - name: Installing
+        run: yarn
+          
+        
+      - name: Testing
+        run: yarn test:e2e
+    
