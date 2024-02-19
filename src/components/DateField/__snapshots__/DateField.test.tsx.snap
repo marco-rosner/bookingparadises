@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateField snapshot 1`] = `
+<div
+  className="MuiFormControl-root-cIviKq irijnr MuiFormControl-root MuiTextField-root-irieE bRnPVu MuiTextField-root"
+  onClick={[Function]}
+  onMouseUp={[Function]}
+>
+  <label
+    className="MuiFormLabel-root-JDKoj bogZUe MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root-iIigrT tdbvZ MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined"
+    data-shrink={false}
+    htmlFor=":r0:"
+    id=":r0:-label"
+  >
+    Start Date
+  </label>
+  <div
+    className="MuiInputBase-root-jxHnQA MuiOutlinedInput-root-hbWbhN eaHyhh YYSXb MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd"
+    onClick={[Function]}
+  >
+    <input
+      aria-invalid={false}
+      autoComplete="off"
+      autoFocus={false}
+      className="MuiInputBase-input-hgvIBM MuiOutlinedInput-input-gNAnCt gZFYRL jXihxS MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd"
+      disabled={false}
+      id=":r0:"
+      inputMode="text"
+      onAnimationStart={[Function]}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onPaste={[Function]}
+      placeholder="MM/DD/YYYY"
+      readOnly={false}
+      required={false}
+      type="text"
+      value=""
+    />
+    <div
+      className="MuiInputAdornment-root-bAvjOZ cfMrMc MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium"
+    >
+      <button
+        aria-label="Choose date"
+        className="MuiButtonBase-root-IAwis hoMEza MuiButtonBase-root MuiIconButton-root-kavlny fuATnI MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root-fhqUMG cRgoaZ MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+          data-testid="CalendarIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+          />
+        </svg>
+      </button>
+    </div>
+    <fieldset
+      aria-hidden={true}
+      className="sc-dmyCSP qwmVQ MuiOutlinedInput-notchedOutline-TWKdE gRFrCv MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        className="sc-hLQSwg eVMezd"
+      >
+        <span>
+          Start Date
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;

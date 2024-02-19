@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TinyTrackSkeleton snapshot 1`] = `
+[
+  <span
+    className="MuiSkeleton-root-eEyfya csqclO MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+    style={
+      {
+        "height": undefined,
+        "width": "30%",
+      }
+    }
+  />,
+  <div
+    className="MuiCardContent-root-gBKLSS fICFrc MuiCardContent-root"
+  >
+    <div
+      className="MuiGrid-root-hwpNzM crJMk MuiGrid-root MuiGrid-container"
+    >
+      <span
+        className="MuiSkeleton-root-eEyfya ilHpkI MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse"
+        style={
+          {
+            "height": 150,
+            "width": 350,
+          }
+        }
+      />
+      <span
+        className="MuiSkeleton-root-eEyfya ilHpkI MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse"
+        style={
+          {
+            "height": 150,
+            "width": 350,
+          }
+        }
+      />
+      <span
+        className="MuiSkeleton-root-eEyfya ilHpkI MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse"
+        style={
+          {
+            "height": 150,
+            "width": 350,
+          }
+        }
+      />
+    </div>
+  </div>,
+]
+`;
