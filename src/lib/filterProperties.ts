@@ -1,5 +1,5 @@
 import { BookingInterface, BookingStatus, Property } from "../types"
-import { isBetweenDates } from "./isBetweenDates"
+import { isDatesOverlap } from "./isDatesOverlap"
 
 export const filterProperties = (
     properties: Property[],
@@ -13,20 +13,13 @@ export const filterProperties = (
     if (confirmedBookings.length === 0) return filteredByPlace
 
     const filteredByDate = filteredByPlace.filter((property) => {
-        return !confirmedBookings.find((booking: BookingInterface) => {
-            const sameProperty = property.id === booking?.property?.id
-            // const sDate = dayjs(booking.startDate).isBetween(currentBooking?.startDate, currentBooking?.endDate, "days", "[]")
-            // const eDate = dayjs(booking.endDate).isBetween(currentBooking?.startDate, currentBooking?.endDate, "days", "[]")
-
-            return sameProperty && 
-                isBetweenDates({
-                    startDate: booking.startDate,
-                    endDate: booking.endDate
-                }, {
-                    startDate: currentBooking?.startDate,
-                    endDate: currentBooking?.endDate
-                })
-        })
+        return !isDatesOverlap(
+            property.id,
+            bookings,
+            {
+                startDate: currentBooking?.startDate,
+                endDate: currentBooking?.endDate
+            })
     })
 
     return filteredByDate
