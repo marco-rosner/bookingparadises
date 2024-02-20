@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material'
 import { BookingProvider } from './components/BookingProvider/BookingProvider'
 import { DetailsView, HomeView, LayoutView, ListView, ManageView } from './views'
 
-import { theme } from './thme'
+import { theme } from './theme'
 import './App.css'
 
 export const App = (): React.ReactElement => (
