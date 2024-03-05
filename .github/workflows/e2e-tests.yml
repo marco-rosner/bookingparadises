@@ -21,8 +21,9 @@ jobs:
       - name: Installing client
         run: cd client && yarn
         
-      - name: Starting server && Testing
-        run: |
-         cd server && yarn start &
-         cd client && yarn test:e2e
+      - name: Starting server
+        run: cd server && yarn start &
+
+      - name: Testing
+        run: cd client && yarn test:e2e
     
