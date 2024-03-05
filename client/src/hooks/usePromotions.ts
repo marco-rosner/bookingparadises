@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { promotions } from "../mock/promotions";
+import { useEffect, useState } from "react";
 import { Promotion } from "../types";
 
 interface usePromotionsInterface {
@@ -13,22 +12,18 @@ export const usePromotions = (): usePromotionsInterface => {
     const [error, setError] = useState<boolean>(false)
     const [data, setData] = useState<Promotion[]>([])
 
-    // Mocking backend request
-    const min = 1000
-    const max = 3000
-    const timeout = Math.random() * (min - max) + min
-    const backendService = new Promise<Promotion[]>(
-        (resolve) => setTimeout(() => resolve(promotions), timeout)
-    );
-
-    backendService.then(() => {
-        setLoading(false)
-        setError(false)
-        setData(promotions)
-    }).catch(() => {
-        setLoading(false)
-        setError(true)
-    })
+    useEffect(() => {
+        fetch('http://localhost:8080/promotions')
+            .then((data) => data.json())
+            .then((promotions) => {
+                setLoading(false)
+                setError(false)
+                setData(promotions)
+            }).catch(() => {
+                setLoading(false)
+                setError(true)
+            })
+    }, [])
 
     return { loading, error, data }
 }

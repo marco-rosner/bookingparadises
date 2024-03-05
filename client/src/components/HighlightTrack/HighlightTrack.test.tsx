@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { promotions } from '../../mock/promotions';
+import { promotions } from '../../__mocks__/promotions';
 import { HighlightTrack } from './HighlightTrack';
 
 jest.mock('../../hooks/usePromotions', () => ({

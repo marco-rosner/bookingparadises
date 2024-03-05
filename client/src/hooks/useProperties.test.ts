@@ -1,7 +1,11 @@
 import { renderHook } from "@testing-library/react"
-import { properties } from "../mock/properties"
 import { useProperties } from "./useProperties"
 
+global.fetch = jest.fn(() =>
+    Promise.resolve({
+        json: () => Promise.resolve(["test"])
+    })
+) as jest.Mock
 
 describe("useProperties", () => {
     test("initial values", () => {
@@ -15,6 +19,7 @@ describe("useProperties", () => {
 
         await new Promise((r) => setTimeout(r, 3000));
 
-        expect(result.current).toEqual({ loading: false, error: false, data: properties })
+        expect(result.current).toEqual({ loading: false, error: false, data: ["test"] })
+        expect(fetch).toHaveBeenCalledWith("http://localhost:8080/properties")
     })
 })

@@ -15,10 +15,14 @@ jobs:
         with:
             node-version: '20'
 
-      - name: Installing
-        run: yarn
-          
+      - name: Installing server
+        run: cd server && yarn
+
+      - name: Installing client
+        run: cd client && yarn
         
-      - name: Testing
-        run: yarn test:e2e
+      - name: Starting server && Testing
+        run: |
+         cd server && yarn start &
+         cd client && yarn test:e2e
     

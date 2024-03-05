@@ -1,6 +1,6 @@
 import dayjs from "dayjs"
-import { properties } from "../mock/properties"
 import { BookingInterface, BookingStatus } from "../types"
+import { properties } from "../__mocks__/properties"
 import { ActionInterface, ActionType, reducer } from "./reducer"
 
 describe("reducer", () => {

@@ -1,6 +1,4 @@
-import { Property } from "../types";
-
-export const properties: Property[] = [
+export const properties = [
     {
         id: 118729,
         placeId: 1,
@@ -9,7 +7,7 @@ export const properties: Property[] = [
         tags: ['Ponta Verde', 'Maceió'],
         price: 50,
         img: '/src/assets/apt.jpg',
-    },{
+    }, {
         id: 1109273,
         placeId: 2,
         name: "Gourgeous lounge",
@@ -17,7 +15,7 @@ export const properties: Property[] = [
         tags: ['Boa Viagem', 'Pernambuco'],
         price: 60,
         img: '/src/assets/lounge.jpg',
-    },{
+    }, {
         id: 1073821,
         placeId: 3,
         name: "Flat",
@@ -34,7 +32,7 @@ export const properties: Property[] = [
         tags: ['Ponta Verde', 'Maceió'],
         price: 80,
         img: '/src/assets/apt2.jpg',
-    },{
+    }, {
         id: 1109274,
         placeId: 2,
         name: "Amazing landscape",
@@ -42,7 +40,7 @@ export const properties: Property[] = [
         tags: ['Boa Viagem', 'Pernambuco'],
         price: 70,
         img: '/src/assets/lounge2.jpg',
-    },{
+    }, {
         id: 1073822,
         placeId: 3,
         name: "Confortable Flat",

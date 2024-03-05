@@ -1,7 +1,11 @@
 import { renderHook } from "@testing-library/react"
-import { promotions } from "../mock/promotions"
 import { usePromotions } from "./usePromotions"
 
+global.fetch = jest.fn(() =>
+    Promise.resolve({
+        json: () => Promise.resolve(["test"])
+    })
+) as jest.Mock
 
 describe("usePromotions", () => {
     test("initial values", () => {
@@ -15,6 +19,7 @@ describe("usePromotions", () => {
 
         await new Promise((r) => setTimeout(r, 3000));
 
-        expect(result.current).toEqual({ loading: false, error: false, data: promotions })
+        expect(result.current).toEqual({ loading: false, error: false, data: ["test"] })
+        expect(fetch).toHaveBeenCalledWith("http://localhost:8080/promotions")
     })
 })

@@ -10,19 +10,37 @@ The project was built using Typescript, ReactJS, Material UI, Vite, React Router
 
 ## Run the project
 
+### Client
+
 Install the dependencies:
 
 ```sh
-yarn
+cd client && yarn
 ```
 
 Run in the dev mode:
 
 ```sh
-yarn dev
+cd client && yarn dev
 ```
 
 Served at http://localhost:5173 
+
+### Server 
+
+Install the dependencies:
+
+```sh
+cd server && yarn
+```
+
+Run in the dev mode:
+
+```sh
+cd server && yarn dev
+```
+
+Served at http://localhost:8080
 
 ## Docker
 
@@ -55,5 +73,4 @@ To prevent regression defects, two GitHub Actions was created [Unit Test](https:
 
 - HighlightTrack and TinyTrack with slides
 - Add i18n internacionalization
-- Create a NodeJS/ExpressJS server to remove the mocks
 - ...

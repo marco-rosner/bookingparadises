@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { properties } from '../../mock/properties';
+import { properties } from '../../__mocks__/properties';
 import { TinyTrack } from './TinyTrack';
 
 jest.mock('../../hooks/useProperties', () => ({

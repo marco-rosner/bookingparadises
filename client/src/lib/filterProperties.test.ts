@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
-import { properties } from '../mock/properties'
 import { BookingStatus } from '../types'
 import { filterProperties } from './filterProperties'
+import { properties } from '../__mocks__/properties'
 
 describe("filterProperties", () => {
     test("with no confirmed bookings", () => {

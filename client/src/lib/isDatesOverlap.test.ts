@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
-import { properties } from '../mock/properties'
 import { BookingStatus } from '../types'
 import { isDatesOverlap } from './isDatesOverlap'
+import { properties } from '../__mocks__/properties'
 
 describe("isDatesOverlap", () => {
     test("with overlap dates", () => {

@@ -14,11 +14,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
             node-version: '20'
-
+      
       - name: Installing
-        run: yarn
+        run: cd client && yarn
           
         
       - name: Testing
-        run: yarn test
+        run: cd client && yarn test
     

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { places } from "../mock/places";
+import { useEffect, useState } from "react";
 import { Place } from "../types";
 
 interface usePlacesInterface {
@@ -13,22 +12,18 @@ export const usePlaces = (): usePlacesInterface => {
     const [error, setError] = useState<boolean>(false)
     const [data, setData] = useState<Place[]>([])
 
-    // Mocking backend request
-    const min = 1000
-    const max = 3000
-    const timeout = Math.random() * (min - max) + min
-    const backendService = new Promise<Place[]>(
-        (resolve) => setTimeout(() => resolve(places), timeout)
-    );
-
-    backendService.then(() => {
-        setLoading(false)
-        setError(false)
-        setData(places)
-    }).catch(() => {
-        setLoading(false)
-        setError(true)
-    })
+    useEffect(() => {
+        fetch('http://localhost:8080/places')
+            .then((data) => data.json())
+            .then((places) => {
+                setLoading(false)
+                setError(false)
+                setData(places)
+            }).catch(() => {
+                setLoading(false)
+                setError(true)
+            })
+    }, [])
 
     return { loading, error, data }
 }
