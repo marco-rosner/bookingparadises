@@ -4,7 +4,7 @@
 
 Booking Paradises is a mobile-friendly application that manages bookings for amazing places where you can live perfect moments with your loved ones.
 
-![Booking Paradises](./src/assets/bookingParadises.png?raw=true "Booking Paradises")
+![Booking Paradises](./client/src/assets/bookingParadises.png?raw=true "Booking Paradises")
 
 The project was built using Typescript, ReactJS, Material UI, Vite, React Router, Hooks, Context API, React Redux, Jest (Unit Tests) and Cypress (E2E Tests).
 
@@ -46,10 +46,20 @@ Served at http://localhost:8080
 
 To run this project using Docker run these commands:
 
-```sh
-docker build . -t marcorosner/bookingsparadises
+### Client
 
-docker run -p 5173:5173 -d marcorosner/bookingsparadises
+```sh
+cd client && docker build . -t marcorosner/bookingsparadises-client
+
+docker run -p 5173:5173 -d marcorosner/bookingsparadises-client
+```
+
+### Server
+
+```sh
+cd server && docker build . -t marcorosner/bookingsparadises-server
+
+docker run -p 8080:8080 -d marcorosner/bookingsparadises-server
 ```
 
 ## Scripts
