@@ -10,7 +10,35 @@ The project was built using Typescript, ReactJS, Material UI, Vite, React Router
 
 ## Run the project
 
-### Client
+### Using Docker Compose
+
+```sh
+docker-compose up
+```
+
+### Using Docker
+
+To run this project using Docker run these commands:
+
+#### Client
+
+```sh
+cd client && docker build . -t marcorosner/bookingsparadises-client
+
+docker run -p 5173:5173 -d marcorosner/bookingsparadises-client
+```
+
+#### Server
+
+```sh
+cd server && docker build . -t marcorosner/bookingsparadises-server
+
+docker run -p 8080:8080 -d marcorosner/bookingsparadises-server
+```
+
+### Standalone versions
+
+#### Client
 
 Install the dependencies:
 
@@ -26,7 +54,7 @@ cd client && yarn dev
 
 Served at http://localhost:5173 
 
-### Server 
+#### Server 
 
 Install the dependencies:
 
@@ -42,27 +70,7 @@ cd server && yarn dev
 
 Served at http://localhost:8080
 
-## Docker
-
-To run this project using Docker run these commands:
-
-### Client
-
-```sh
-cd client && docker build . -t marcorosner/bookingsparadises-client
-
-docker run -p 5173:5173 -d marcorosner/bookingsparadises-client
-```
-
-### Server
-
-```sh
-cd server && docker build . -t marcorosner/bookingsparadises-server
-
-docker run -p 8080:8080 -d marcorosner/bookingsparadises-server
-```
-
-## Scripts
+## Scripts on client
 
 There are many scripts in `package.json` like:
 
