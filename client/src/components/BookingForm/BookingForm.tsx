@@ -14,6 +14,7 @@ import { AlertPopup } from "../AlertPopup/AlertPopup";
 import { PlaceField } from "../PlaceField/PlaceField";
 import { useBookings, useNextId } from "../../hooks";
 import { ActionType } from "../../store/reducer";
+import { useTranslation } from "react-i18next";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -26,6 +27,7 @@ export const BookingForm = (): React.ReactElement => {
     const { dispatch } = useBookings()
     const { nextId } = useNextId()
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     useEffect(() => {
         if (startDate && endDate) {
@@ -58,18 +60,18 @@ export const BookingForm = (): React.ReactElement => {
             xl={8}
         >
             <Grid item xs={8} md={4} lg={3} xl={3}>
-                <PlaceField label="Search your paradise" setPlaceId={setPlaceId} />
+                <PlaceField label={t('bookingForm.searchLabel')} setPlaceId={setPlaceId} />
             </Grid>
             <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en'}>
                 <Grid item xs={8} md={3} lg={2.3} xl={1.7}>
-                    <DateField label="Start Date" id="form-start-date" error={error} setDate={setStartDate} />
+                    <DateField label={t('bookingForm.startDate')} id="form-start-date" error={error} setDate={setStartDate} />
                 </Grid>
                 <Grid item xs={8} md={3} lg={2.3} xl={1.7}>
-                    <DateField label="End Date" id="form-end-date" error={error} setDate={setEndDate} />
+                    <DateField label={t('bookingForm.endDate')} id="form-end-date" error={error} setDate={setEndDate} />
                 </Grid>
             </LocalizationProvider>
             <Grid item xs={8} md={1} lg={1}>
-                <Button data-cy="submit" size="large" color="secondary" onClick={onClick} disabled={error || !endDate}>Search</Button>
+                <Button data-cy="submit" size="large" color="secondary" onClick={onClick} disabled={error || !endDate}>{t('bookingForm.search')}</Button>
             </Grid>
             <AlertPopup
                 open={error}

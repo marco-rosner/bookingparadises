@@ -90,5 +90,4 @@ To prevent regression defects, two GitHub Actions was created [Unit Test](https:
 ## Future work
 
 - HighlightTrack and TinyTrack with slides
-- Add i18n internacionalization
 - ...

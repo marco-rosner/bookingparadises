@@ -1,14 +1,20 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Avatar, Box, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material"
+import { Avatar, Box, CardMedia, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material"
+import { useTranslation } from "react-i18next";
 
 export const BookingMenu = (): React.ReactElement => {
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl)
+    const { i18n, t } = useTranslation()
 
     const onClick = (e: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(e.currentTarget)
+    }
+
+    const changeLanguage = (language: string) => {
+        i18n.changeLanguage(language)
     }
 
     const onClose = () => setAnchorEl(null)
@@ -20,7 +26,24 @@ export const BookingMenu = (): React.ReactElement => {
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Box sx={{ mr: '10px', cursor: 'pointer' }} onClick={() => navigate("/")}>
-                    <Typography color="white">Make a reservation</Typography>
+                    <Typography color="white">{t('menu.reservation')}</Typography>
+                </Box>
+                <Box sx={{ mr: '10px', cursor: 'pointer', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <CardMedia
+                        component="img"
+                        height="20"
+                        image="/src/assets/br-flag.png"
+                        sx={{ width: '19px', height: '19px' }}
+                        onClick={() => changeLanguage('pt-BR')}
+                    />
+
+                    <CardMedia
+                        component="img"
+                        height="30"
+                        image="/src/assets/us-flag.png"
+                        sx={{ ml: '5px', width: '25px', height: '25px' }}
+                        onClick={() => changeLanguage('en-US')}
+                    />
                 </Box>
                 <Box>
                     <Tooltip title="User account">
@@ -72,8 +95,8 @@ export const BookingMenu = (): React.ReactElement => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem data-cy="manage-user-menu"onClick={() => { onClose(); navigate("/manage") }}>
-                    Manage bookings
+                <MenuItem data-cy="manage-user-menu" onClick={() => { onClose(); navigate("/manage") }}>
+                    {t('menu.manageBookings')}
                 </MenuItem>
             </Menu>
         </Box>

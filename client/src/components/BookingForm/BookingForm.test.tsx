@@ -14,7 +14,7 @@ global.fetch = jest.fn(() =>
 
 describe("BookingForm", () => {
     test("place field label appears", () => {
-        const label = "Search your paradise"
+        const label = "bookingForm.searchLabel"
 
         render(<BookingForm />)
 
@@ -22,7 +22,7 @@ describe("BookingForm", () => {
     })
 
     test("start date field label appears", () => {
-        const label = "Start Date"
+        const label = "bookingForm.startDate"
 
         render(<BookingForm />)
 
@@ -30,7 +30,7 @@ describe("BookingForm", () => {
     })
 
     test("end date field label appears", () => {
-        const label = "End Date"
+        const label = "bookingForm.endDate"
 
         render(<BookingForm />)
 
@@ -38,7 +38,7 @@ describe("BookingForm", () => {
     })
 
     test("button text appears", () => {
-        const buttonText = "Search"
+        const buttonText = "bookingForm.search"
 
         render(<BookingForm />)
 
