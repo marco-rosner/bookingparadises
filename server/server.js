@@ -12,6 +12,8 @@ const startExpressServer = async () => {
     app.use(express.json())
     app.use(cors())
 
+    app.use('/assets', express.static(__dirname + '/assets'))
+
     app.get("/places", getPlaces)
     app.get("/promotions", getPromotions)
     app.get("/properties", getProperties)

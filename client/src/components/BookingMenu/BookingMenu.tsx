@@ -32,7 +32,7 @@ export const BookingMenu = (): React.ReactElement => {
                     <CardMedia
                         component="img"
                         height="20"
-                        image="/src/assets/br-flag.png"
+                        image="http://localhost:8080/assets/br-flag.png"
                         sx={{ width: '19px', height: '19px' }}
                         onClick={() => changeLanguage('pt-BR')}
                     />
@@ -40,7 +40,7 @@ export const BookingMenu = (): React.ReactElement => {
                     <CardMedia
                         component="img"
                         height="30"
-                        image="/src/assets/us-flag.png"
+                        image="http://localhost:8080/assets/us-flag.png"
                         sx={{ ml: '5px', width: '25px', height: '25px' }}
                         onClick={() => changeLanguage('en-US')}
                     />
