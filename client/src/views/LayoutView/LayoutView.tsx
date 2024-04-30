@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom"
 import { Divider, Grid } from "@mui/material"
 
 import { BookingForm, BookingMenu } from "../../components"
+import { SERVER_PATH } from "../../constant"
 
 export const LayoutView = (): React.ReactElement => (
     <>
@@ -10,7 +11,8 @@ export const LayoutView = (): React.ReactElement => (
             direction="column"
             justifyContent="center"
             alignItems="center"
-            sx={{ minWidth: '100vw', minHeight: '30vh', backgroundImage: `url(http://localhost:8080/assets/beach.jpg)`, backgroundPositionY: '-50px' }}
+            sx={{ minWidth: '100vw', minHeight: '30vh', backgroundImage: `url(${SERVER_PATH}/assets/beach.jpg)`, backgroundPositionY: '-50px' }}
+
         >
             <BookingMenu />
             <BookingForm />

@@ -1,4 +1,5 @@
 import { renderHook } from "@testing-library/react"
+import { SERVER_PATH } from "../constant"
 import { useProperties } from "./useProperties"
 
 global.fetch = jest.fn(() =>
@@ -20,6 +21,6 @@ describe("useProperties", () => {
         await new Promise((r) => setTimeout(r, 3000));
 
         expect(result.current).toEqual({ loading: false, error: false, data: ["test"] })
-        expect(fetch).toHaveBeenCalledWith("http://localhost:8080/properties")
+        expect(fetch).toHaveBeenCalledWith(`${SERVER_PATH}/properties`)
     })
 })

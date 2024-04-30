@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SERVER_PATH } from "../constant";
 import { Property } from "../types";
 
 interface usePropertiesInterface {
@@ -13,7 +14,7 @@ export const useProperties = (): usePropertiesInterface => {
     const [data, setData] = useState<Property[]>([])
 
     useEffect(() => {
-        fetch('http://localhost:8080/properties')
+        fetch(`${SERVER_PATH}/properties`)
             .then((data) => data.json())
             .then((properties) => {
                 setLoading(false)

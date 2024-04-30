@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SERVER_PATH } from "../constant";
 import { Place } from "../types";
 
 interface usePlacesInterface {
@@ -13,7 +14,7 @@ export const usePlaces = (): usePlacesInterface => {
     const [data, setData] = useState<Place[]>([])
 
     useEffect(() => {
-        fetch('http://localhost:8080/places')
+        fetch(`${SERVER_PATH}/places`)
             .then((data) => data.json())
             .then((places) => {
                 setLoading(false)

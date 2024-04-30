@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SERVER_PATH } from "../constant";
 import { Promotion } from "../types";
 
 interface usePromotionsInterface {
@@ -13,7 +14,7 @@ export const usePromotions = (): usePromotionsInterface => {
     const [data, setData] = useState<Promotion[]>([])
 
     useEffect(() => {
-        fetch('http://localhost:8080/promotions')
+        fetch(`${SERVER_PATH}/promotions`)
             .then((data) => data.json())
             .then((promotions) => {
                 setLoading(false)

@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Avatar, Box, CardMedia, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material"
 import { useTranslation } from "react-i18next";
+import { SERVER_PATH } from "../../constant";
+
 
 export const BookingMenu = (): React.ReactElement => {
     const navigate = useNavigate();
@@ -32,7 +34,7 @@ export const BookingMenu = (): React.ReactElement => {
                     <CardMedia
                         component="img"
                         height="20"
-                        image="http://localhost:8080/assets/br-flag.png"
+                        image={`${SERVER_PATH}/assets/br-flag.png`}
                         sx={{ width: '19px', height: '19px' }}
                         onClick={() => changeLanguage('pt-BR')}
                     />
@@ -40,7 +42,7 @@ export const BookingMenu = (): React.ReactElement => {
                     <CardMedia
                         component="img"
                         height="30"
-                        image="http://localhost:8080/assets/us-flag.png"
+                        image={`${SERVER_PATH}/assets/us-flag.png`}
                         sx={{ ml: '5px', width: '25px', height: '25px' }}
                         onClick={() => changeLanguage('en-US')}
                     />
